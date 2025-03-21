@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="background-color: orange; width: 550px; height: 60px; margin-left: 450px; padding: 6px 10px;">
+        <h3 style="padding: 3px 10px; padding-left:60px ; ">PT Ứng dụng web - THIẾT KẾ FORM ĐƠN GIẢN</h3>
+
+    </div>
+    <div>
+        
+        <form style="margin-left: 450px; margin-top: 20px;" action="" method="GET">
+         Họ và tên:  <input style="margin-left: 150px;" type="text" name="ho_ten" size="20" placeholder="Nhập họ và tên">
+        </form>
+        <form style="margin-left: 450px; margin-top: 20px;" action="" method="GET">
+         Email: <input style="margin-left: 174px; " type="email" name="email" size="20" placeholder="Nhập email">
+        </form>
+        <form style="margin-left: 450px; margin-top: 20px;" action="" method="GET">
+         Số điện thoại: <input style="margin-left: 127px;" type="number" name="sodienthoai" size="20" maxlength="10" placeholder="Nhập số điện thoại">
+        </form>
+        <div style="margin-top: 20px; margin-left: 450px;"> Quê quán: <select name="thanh_pho" id="" style="margin-left: 150px;">
+               <option value="">--Chọn nơi mình đang sống</option>
+               <option value="thaibinh">Thái Bình</option>
+               <option value="hanoi">Hà Nội</option>
+               <option value="haiphong">Hải Phòng</option>
+               <option value="haiduong">Hải Dương</option>
+               <option value="hungyen">Hưng Yên</option>
+               <option value="namdinh">Nam Định</option>
+               <option value="hochiminh">Thành phố Hồ Chí Minh</option>
+               <option value="danang">Đà Nẵng</option>
+               <option value="ninhbinh">Ninh Bình</option>
+               <option value="laocai">Lào Cai</option>
+               <option value="binhdinh">Bình Định</option>
+
+        </select>
+        </div> 
+        <div style="margin-top: 20px; margin-left: 450px;"> Giới tính: 
+            <input style="margin-left: 155px;" type="radio" name="ketqua" value="nam">Nam
+            <input type="radio" name="ketqua" value="nu">Nữ
+        </div>
+        <div style="margin-top: 20px; margin-left: 450px;"> Kỹ năng: 
+            <input style="margin-left: 157px;" type="checkbox" name="ky_nang" value="html" >HTML
+            <input type="checkbox" name="ky_nang" value="css">CSS
+            <input type="checkbox" name="ky_nang" value="js">JAVASCRIPT
+           
+
+        </div>
+        <div style="margin-top: 20px; margin-left: 450px;">Ngày sinh:
+            <input style="margin-left: 148px;" type="date" name="date_of_birth" id="date_of_birth">
+        </div>
+        <form style="margin-left: 450px;"  action="" method="GET">
+        <p style="margin-top: 60px;">Giới thiệu bản thân: </p>    <textarea style="margin-left: 220px; margin-top: -80px;" name="" id="" cols="30" rows="7" placeholder="Hãy giới thiệu về bản thân"></textarea>
+        </form>
+
+    </div>
+    <div style="background-color: orange ; padding: 10px; width: 550px; margin-left: 450px;"  >
+        <input style="margin-left: 200px;"  type="submit" name="submit" value="Submit">
+        <input  type="reset" name="reset" value="Reset">
+    </div>
+    
+</body>
+</html>

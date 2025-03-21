@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="background-color: red; width: 440px; margin-left: 250px; padding: 5px 80px;">
+        <h1  style="margin-left:0;">Thông tin</h1>
+    </div>
+    <div style="background-color: yellow; width: 500px; margin-left: 250px; padding: 30px 50px;" 
+        
+            style="margin-left: 250px;">
+            <form action="" method="GET">
+                Họ và tên: <input type="text" name="ho_ten" size="50px" maxlength="30" placeholder="Nhập họ tên">
+            </form>
+            <form style="margin-top: 10px;" action="" method="GET">
+                Mật khẩu: <input type="password" name="mat_khau" size="50px" maxlength="30" placeholder="Nhập mật khẩu">
+            </form>
+            <input style="margin-top: 10px; margin-left: 356px;" type="submit" name="dangnhap" value="Đăng Nhập">
+
+            <form action="" method="GET" >
+                <textarea style="margin-top: 10px; margin-left: 70px;" name="gioi_thieu" cols="47" rows="4" placeholder="Bạn hãy giới thiệu về bản thân "></textarea>
+            </form>
+                
+    
+        Đáp án đúng:
+        <input type="radio" name="ketqua" value="a" > Đáp án A
+        <input type="radio" name="ketqua" value="b"> Đáp án B 
+        <input type="radio" name="ketqua" value="c"> Đáp án C
+        
+        <div style="margin-top: 10px;">  Sở thích của bạn:
+            <input type="checkbox" name="so_thich" value="choi_game">Chơi game
+            <input type="checkbox" name="so_thich" value="da_bong">Đá bóng
+            <input type="checkbox" name="so_thich" value="doc_sach">Đọc sách
+            <input type="checkbox" name="so_thich" value="nghe_nhac">Nghe nhạc
+        </div>
+        
+        <div style="margin-top: 10px;"> Chọn nơi mình sống
+            <select name="thanh_pho">
+                <option value="">--Chọn nơi mình đang sống</option>
+                <option value="hanoi">Hà Nội</option>
+                <option value="danang">Đà Nẵng</option>
+                <option value="thaibinh">Thái Bình</option>
+                <option value="hungyen">Hưng Yên</option>
+                <option value="haiduong">Hải Dương</option>
+            </select>
+       </div>
+        <div style="margin-top: 10px;">Ngày sinh:
+            <input type="date" name="date_of_birth" id="date_of_birth">
+
+        </div>
+
+    </div>      
+</body>
+</html>
