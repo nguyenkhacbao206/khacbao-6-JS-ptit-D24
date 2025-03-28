@@ -1,0 +1,32 @@
+#img-left {
+    
+    width: 650px;
+
+}
+
+#img-right {
+    margin-left: 5px;
+    width: 650px;
+}
+
+.img-c {
+    display: flex;
+    margin-top: 10px;
+}
+
+.highlight-title{
+    position: absolute;
+    top: 335px;
+}
+
+#btn{
+    background-color: rgb(60, 190, 241);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.info {
+    border-collapse: collapse;
+    margin-top: -2px;
+}
