@@ -1,0 +1,65 @@
+#anh2 {
+    width: 550px;
+    
+    margin-left: 2px ;
+}
+
+#anh {
+    width: 550px;
+    margin-left: 0px ;
+}
+
+
+.ac{
+    display: flex;
+    margin-top: 0;
+}
+
+.ac2 {
+    display: flex;
+    margin-top: 20px;
+}
+
+
+    
+    
+
+
+#chu1 {
+    margin-top: 10px;
+    
+    font-size: 21px;
+    
+    
+}
+
+#chu2 {
+    margin-top: 10px;
+    margin-left: 8px;
+    font-size: 21px;
+    
+    
+}
+
+.highlight-title {
+    position:absolute;
+    top: 330px;
+    font-size: 25px;
+
+}
+
+button{
+    border-radius: 6px;
+    background-color: rgb(60, 128, 223);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.new-list {
+        
+        margin-top: -20px;
+        margin-left: -20px;
+    
+}
