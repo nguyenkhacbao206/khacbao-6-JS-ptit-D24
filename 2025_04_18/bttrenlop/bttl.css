@@ -1,0 +1,81 @@
+h3 {
+    border: 1px solid red;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 50px;
+
+}
+
+.block {
+    background-color: orange;
+    width: 500px;
+    height: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+
+.the_p {
+    display: block;
+    background-color: orange;
+}
+
+.thep {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: orange;
+}
+
+.the-p {
+    display: inline-block;
+    margin-top: 20px;
+    height: 40px;
+    background-color: orange;
+}
+
+.none {
+    display: none;
+}
+
+.div1 {
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    float: left;
+}
+
+.div2 {
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+    float: right;
+}
+
+.div3 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    float: left;
+}
+
+.div4 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    float: left;
+}
+
+.div5 {
+    width: 200px;
+    height: 100px;
+    background-color: black;
+    float: left;
+    clear: both;
+}
+
