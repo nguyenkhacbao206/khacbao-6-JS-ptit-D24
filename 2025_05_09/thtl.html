@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <script src="thtl.js"></script>
+
+    <input type="button" onclick="alert('Hello world')" value="Click Me"/>
+
+<input type="button" value="Xóa dữ liệu" onclick="xoaDuLieu()" />
+
+<script>
+  function xoaDuLieu() {
+    let xacNhan = confirm("Bạn có chắc chắn muốn xóa không?");
+    if (xacNhan) {
+      alert("Dữ liệu đã bị xóa!");
+    } else {
+      alert("Hủy thao tác xóa.");
+    }
+  }
+</script>
+
+<input type="button" value="Nhập tên" onclick="nhapTen()" />
+
+<script>
+  function nhapTen() {
+    let ten = prompt("Mời bạn nhập tên:");
+    if (ten !== null && ten !== "") {
+      alert("Xin chào, " + ten + "!");
+    } else {
+      alert("Bạn chưa nhập tên.");
+    }
+  }
+</script>
+
+
+    
+</body>
+</html>
+
