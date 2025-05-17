@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tongsole(n) {
+            if (typeof n !== 'number' || !Number.isInteger(n) || n < 0) {
+                return "Đây không phải là số nguyên dương"
+            }
+
+            let tong = 0
+            for (let i = 1; i < n; i+=2) {
+                tong+=i
+
+            }
+            return tong
+        }
+        document.write(tongsole(6))
+    </script>
+</body>
+</html>

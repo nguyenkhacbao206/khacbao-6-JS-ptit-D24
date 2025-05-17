@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function bangcuuchuong(n) {
+            if (typeof n !== 'number' || !Number.isInteger(n) || n < 2 || n > 9) {
+                return document.write("đây không phải là số nguyên từ 2 đến 9")
+            }
+
+            for (let i = 1 ; i <= 10; i++ ) {
+                let ketqua = n*i
+                document.write(`${n} x ${i} = ${ketqua}` + "<br>")
+            }
+            
+
+        }
+        bangcuuchuong(2)
+    </script>
+</body>
+</html>

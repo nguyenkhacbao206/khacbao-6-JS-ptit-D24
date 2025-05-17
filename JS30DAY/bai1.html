@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function kiemtrachanle(n) {
+            if (typeof n !== 'number' || !Number.isInteger(n)) {
+                return "đây không phải là số nguyên"
+            }
+
+            if (n % 2 == 0) {
+                return "Số chẵn"
+            }else
+                return "số lẻ"
+
+        }
+
+        document.write(kiemtrachanle(3))
+
+    </script>
+</body>
+</html>

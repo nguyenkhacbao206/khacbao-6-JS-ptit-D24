@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tinhgiaithua(n) {
+            if (typeof n !== 'number' || !Number.isInteger(n) || n <0) {
+                return "đây không phải là số nguyên dương "
+            }
+
+            if (n===0) {
+                return 1
+            }else {
+                const giaithua = 1
+                for (const i = 1; i <= n; i++) {
+                    giaithua*=i
+                }
+                return giaithua
+            }
+        }
+
+        document.write(tinhgiaithua(2))
+    </script>
+</body>
+</html>
