@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function kiemtramatkhau(matkhau) {
+            if (matkhau.length < 8) {
+                return document.write("mật khẩu phải có ít nhất là 8 ký tự")
+            }
+            if (!/[A-Z]/.test(matkhau)) {
+                return document.write("Mật khẩu phải có ít nhất ký tự viết hoa")
+            }
+            if (!/[a-z]/.test(matkhau)) {
+                return document.write("mật khẩu phải có ít nhất ký tự viết thường")
+            } 
+            if (!/\d/.test(matkhau)) {
+                return document.write("mật khẩu phải có ít nhất 1 số")
+            }
+            return document.write('mật khẩu mạnh')
+        }
+        kiemtramatkhau("Khacbao17")
+    </script>
+</body>
+</html>
