@@ -4,7 +4,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:-webkit-linear-gradient(left, #7579ff, #b224ef) ;
+    background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+    background: linear-gradient(to right, #7579ff, #b224ef); /* Thêm chuẩn và hướng */
+    font-family: 'Nunito', sans-serif; /* Sửa lỗi font-family */
 }
 
 .container {
@@ -13,6 +15,7 @@ body {
     width: 900px;
     height: 550px;
     background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Thêm box-shadow cho đẹp */
 }
 
 input, button {
@@ -21,20 +24,39 @@ input, button {
     background: none;
 }
 
-.form-signIn {
-    position: relative;
-    width: 640px;
+/* Base styles for forms */
+.form-signIn,
+.form-signUp {
+    position: absolute; /* Đặt cả hai form là absolute */
+    top: 0;
+    width: 640px; /* Chiều rộng form */
     height: 100%;
     padding: 50px 30px;
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition:  -webkit-transform 1.2s ease-in-out;
-
+    background-color: white; /* Đảm bảo có nền để không bị xuyên thấu */
+    transition: transform 1.2s ease-in-out; /* Chỉ một dòng transition */
 }
 
-.form-signIn h2 {
+.form-signIn {
+    left: 0;
+    transform: translateX(0); /* Vị trí ban đầu của Sign In */
+    z-index: 2; /* Đảm bảo Sign In ở trên khi hiển thị */
+}
+
+.form-signUp {
+    left: 0; /* Cũng ở left 0, sẽ được dịch chuyển */
+    transform: translateX(900px); /* Vị trí ban đầu của Sign Up (ẩn sang phải) */
+    z-index: 1; /* Đặt Sign Up ở dưới ban đầu */
+    opacity: 0; /* Ẩn mờ ban đầu để transition đẹp hơn */
+    pointer-events: none; /* Ngăn chặn tương tác khi ẩn */
+}
+
+.form-signIn h2,
+.form-signUp h2 {
     width: 100%;
     text-align: center;
     font-size: 25px;
+    color: #505f75; /* Thêm màu cho tiêu đề */
+    margin-bottom: 30px;
 }
 
 label {
@@ -56,9 +78,9 @@ input {
     width: 100%;
     margin-top: 5px;
     padding-bottom: 5px;
-    border-bottom:  1px solid rgba(109, 93, 93, 0.4);
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
     text-align: center;
-     font-family: 'Nunito' sans-serif;
+    font-family: 'Nunito', sans-serif; /* Sửa lỗi font-family */
 }
 
 button {
@@ -69,25 +91,27 @@ button {
     color: white;
     cursor: pointer;
     border-radius: 15px;
-}
-
-button:hover {
-    background: -webkit-linear-gradient(left, #b224ef, #7579ff);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    transition: background 0.3s ease; /* Thêm transition cho hover button */
 }
 
 .submit {
     margin-top: 30px;
     margin-bottom: 30px;
-    background: -webkit-linear-gradient(left, #7579ff, #b224ef) ;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: 'Nunito' sans-serif;
+    background: linear-gradient(to right, #7579ff, #b224ef);
+}
+
+button:hover {
+    background: linear-gradient(to left, #b224ef, #7579ff);
 }
 
 .forgot-pass {
     text-align: center;
     font-size: 15px;
     cursor: pointer;
+    color: #505f75; /* Thêm màu cho text */
 }
 
 .forgot-pass:hover {
@@ -100,6 +124,7 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 40px;
+    padding: 0; /* Reset padding */
 }
 
 .image-icon ul li img {
@@ -107,80 +132,173 @@ button:hover {
     cursor: pointer;
 }
 
+/* SUB CONTAINER - Phần chứa ảnh nền và nút chuyển đổi */
 .sub-container {
     overflow: hidden;
     position: absolute;
-    left: 640px;
+    left: 640px; /* Bắt đầu từ sau form signIn */
     top: 0;
-    width: 900px;
+    width: 260px; /* Chiều rộng chính của sub-container */
     height: 100%;
-    padding-left: 260px;
-    background:white ;
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition: -webkit-transform 1.2s ease-in-out;
+    /* padding-left: 260px; removed, not needed here */
+    background: white; /* Nên là background của .img:before */
     transition: transform 1.2s ease-in-out;
+    z-index: 3; /* Đảm bảo nó luôn ở trên các form khi trượt */
 }
 
 .img {
-    overflow: hidden;
-    z-index: 2;
+    position: absolute; /* Đặt relative để img::before và ::after theo nó */
     left: 0;
     top: 0;
-    position: absolute;
-    width: 260px;
+    width: 100%; /* Chiếm toàn bộ sub-container */
     height: 100%;
-    padding-top: 360px;
+    overflow: hidden; /* Đảm bảo pseudo-elements không tràn ra */
+}
+
+.img::before {
+    content: " ";
+    position: absolute;
+    /* Dịch chuyển ảnh nền để khớp với phần img:before */
+    left: -640px; /* Bắt đầu từ ngoài cùng bên trái của container */
+    top: 0;
+    width: 900px; /* Chiều rộng của container tổng thể */
+    height: 100%;
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    background-position: center; /* Để ảnh nền hiển thị đẹp hơn */
+    transition: transform 1.2s ease-in-out;
+}
+
+.img::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.img-text {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    color: white;
+    transition: transform 1.2s ease-in-out;
+}
+
+.img-text.signup-text {
+    margin-left: -19px;
+    text-align: center;
+    top: 50px;
+    transform: translateX(0); /* Vị trí ban đầu cho text "New here" */
 }
 
 
-.img:before{
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 900px;
-  height: 100%;
-  background-image: url(images/bg.jpg);
-  background-size: cover;
-  transition: -webkit-transform 1.2s ease-in-out;
-  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+.img-text.signin-text {
+    margin-left: -19px;
+    top: 50px; /* Cũng ở top 50px */
+    transform: translateX(900px); /* Ẩn text "One of us?" sang phải */
 }
 
-.img:after{
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
+.img-text h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: white;
+    width: 100%;
+    text-align: center;
 }
 
-.cont.s-signup .img:before{
-  -webkit-transform:translate3d(640px, 0, 0);
-          transform:translate3d(640px, 0, 0);
+.img-text p {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
 }
 
-.img-text{
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 50px;
-  width: 100%;
-  padding: 0 20px;
-  text-align: center;
-  color: #fff;
-  -webkit-transition:-webkit-transform 1.2s ease-in-out;
-  transition: -webkit-transform 1.2s ease-in-out;
-  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+.img-btn {
+    z-index: 2;
+    position: absolute;
+    bottom: 50px; /* Đặt nút ở dưới cùng */
+    left: 50%; /* Căn giữa ngang */
+    transform: translateX(-50%); /* Dịch sang trái 50% chiều rộng của chính nó */
+    width: 100px;
+    height: 36px;
+    background: transparent;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    border: 2px solid white; /* Đã chuyển border từ ::after vào đây */
+    border-radius: 20px;
+    display: flex; /* Dùng flex để căn giữa span bên trong */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Đảm bảo span trượt không tràn */
 }
 
-.img-text h2{
-  margin-bottom: 10px;
-  font-weight: normal;
+.img-btn span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.2s ease-in-out;
 }
 
-.img-text p{
-  font-size: 14px;
-  line-height: 1.5;
+.img-btn .m-up { /* Nút Sign Up ban đầu hiển thị */
+    transform: translateY(0);
+}
+
+.img-btn .m-in { /* Nút Sign In ban đầu ẩn */
+    transform: translateY(100%); /* Dịch xuống dưới 100% chiều cao của nó */
+}
+
+.form-signUp {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    width: 640px;
+    height: 100%;
+    /* text-align: center; */
+    transition: transform 1.2s ease-in-out ;
+} 
+
+
+/* === TRẠNG THÁI S-SIGNUP (Khi chuyển sang Đăng ký) === */
+.container.s-signup .form-signIn {
+    transform: translateX(-640px); /* Dịch Sign In sang trái để ẩn */
+}
+
+.container.s-signup .form-signUp {
+    transform: translateX(0); /* Dịch Sign Up vào vị trí */
+    opacity: 1;
+    pointer-events: auto; /* Cho phép tương tác khi hiển thị */
+}
+
+.container.s-signup .sub-container {
+    transform: translateX(-640px); /* Dịch sub-container sang trái */
+}
+
+.container.s-signup .img::before {
+    transform: translateX(640px); /* Dịch ảnh nền sang phải */
+}
+
+.container.s-signup .img-text.signup-text {
+    transform: translateX(-900px); /* Dịch text "New here" ra khỏi màn hình */
+}
+
+.container.s-signup .img-text.signin-text {
+    transform: translateX(0); /* Dịch text "One of us?" vào màn hình */
+}
+
+.container.s-signup .img-btn .m-up {
+    transform: translateY(-100%); /* Dịch nút Sign Up lên trên để ẩn */
+}
+
+.container.s-signup .img-btn .m-in {
+    transform: translateY(0); /* Dịch nút Sign In xuống để hiển thị */
 }
