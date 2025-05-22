@@ -8,12 +8,13 @@ body {
 
 .container {
     width: 220px;
-    height: 330px;
+    height: 360px;
     padding: 10px;
     background-color: black;
 }
 
-input {
+.text {
+    color: white;
     width: 220px;
     height: 30px;
     background-color: black;

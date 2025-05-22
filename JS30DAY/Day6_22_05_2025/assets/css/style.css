@@ -1,0 +1,67 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* header */
+
+.header-content {
+    background-color: #da4639;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    color: white;
+}
+
+.content-text { 
+    display: flex;
+    gap: 30px;
+}
+
+.content-icon {
+    display: flex;
+    gap: 30px;
+}
+
+.header-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gainsboro;
+    padding: 0 150px;
+}
+
+.list-text {
+    padding: 30px 0;
+}
+
+.list-text ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.list-text ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    transition: background-color 0.5s ease;
+}
+
+.list-text ul li a:hover {
+    background-color: white;
+}
+
+.nav-image {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
