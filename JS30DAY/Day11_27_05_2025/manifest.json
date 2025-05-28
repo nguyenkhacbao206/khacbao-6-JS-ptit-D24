@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "DanTri title Modifier",
+    "version": "1.0",
+    "description": "Thay đổi tiêu đề bài báo trên dantri.com.vn",
+    "content_scripts": [
+        {
+            "matches": ["*://*.dantri.com.vn/*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "permissions": ["scripting"]
+}
