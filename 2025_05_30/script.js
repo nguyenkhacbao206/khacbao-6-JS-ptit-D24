@@ -19,24 +19,50 @@
 // document.write("Mã SV: " + nam.id + "<br>" + "Họ tên: " + nam.name + "<br>" + "Lương: " + nam.salary);
 
 
+// class Person{
+//             name;
+//             age;
+//             salary;
+//             hello(){
+//                 document.write("Hello "+ this.name);
+//              }
+
+//              changeSalary(newSalary){
+//                 this.salary = newSalary;
+//              }
+
+//         }
+
+//         a = new Person();
+//         a.name = "Nguyễn khắc bảo";
+//         a.hello();
+//         a.salary = 1;
+//         document.write( "Họ tên: " + a.name + "<br>" + "Lương: " + a.salary);
+//         a.changeSalary(12);
+//         document.write( "Họ tên: " + a.name + "<br>" + "Lương: " + a.salary);
+
+
+
 class Person{
             name;
             age;
             salary;
+
+            constructor(name, age, salary) {
+                this.name = name;
+                this.age = age;
+                this.salary = salary
+            }
+
             hello(){
                 document.write("Hello "+ this.name);
-             }
+            }
 
-             changeSalary(newSalary){
-                this.salary = newSalary;
-             }
+}
 
-        }
+        kbao = new Person();
+        kbao.name = "Nguyễn khắc bảo";
+        kbao.hello();
+        
 
-        a = new Person();
-        a.name = "Park Jung Hoan";
-        a.hello();
-        a.salary = 1;
-        document.write( "Họ tên: " + a.name + "<br>" + "Lương: " + a.salary);
-        a.changeSalary(12);
-        document.write( "Họ tên: " + a.name + "<br>" + "Lương: " + a.salary);
+
