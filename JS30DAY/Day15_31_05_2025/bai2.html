@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Employee {
+            constructor(name, position, baseSalary, workingDays) {
+                this.name = name;
+                this.position = position;
+                this.baseSalary = baseSalary;
+                this.workingDays = workingDays;
+            }
+            calculateSalary() {
+                return this.baseSalary * this.workingDays
+            }
+
+            show() {
+                const salary = this.calculateSalary()
+                document.write(`họ tên:  ${this.name}  <br>`)
+                document.write(`chức vụ:  ${this.position}  <br>`)
+                document.write(`Lương thực nhận: ${salary.toLocaleString()} VND`)
+            }
+        }
+
+        const nv1 = new Employee("nguyen khac bao", "giám đốc", 1000000000, 22)
+        nv1.show()
+    </script>
+</body>
+</html>

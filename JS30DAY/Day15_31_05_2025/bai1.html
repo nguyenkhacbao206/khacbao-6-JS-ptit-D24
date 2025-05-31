@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student {
+            constructor(id, name, email, age) {
+                this.id = id;
+                this.name = name;
+                this.email = email;
+                this.age = age;
+            };
+
+             displayInfo() {
+            document.write(`Mã SV: ${this.id} <br>`);
+            document.write(`Tên: ${this.name} <br>`);
+            document.write(`Email: ${this.email} <br>`);
+            document.write(`Tuổi: ${this.age} <br>`);
+        }
+        };
+        const sv1 = new Student("b24dccc034", "nguyen khac bao", "nkb@gmail.com", "17")
+        const sv2 = new Student("b24dccc0231", "nguyen van a", "bnk@gmail.com","20")
+        sv1.displayInfo()
+        sv2.displayInfo()
+    </script>
+</body>
+</html>

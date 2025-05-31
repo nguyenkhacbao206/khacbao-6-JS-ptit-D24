@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Product {
+            constructor(id, name, price, quantity) {
+                this.id = id
+                this.name = name
+                this.price = price
+                this.quantity = quantity
+            }
+
+            tongtien() {
+                return this.price * this.quantity
+            }
+        }
+        const products = [
+            new Product(1, "bút bi", 5000, 10),
+            new Product(2, "vở", 6000, 20 ),
+            new Product(3, "thước", 10000, 50 )
+        ]
+
+        function addsp() {
+            const newprduct = new Product(id, name, price, quantity)
+            newprduct.push(products)
+        }
+
+        function tonghangtonkho() {
+            let total = 0
+            for (let product of products) {
+                total += product.tongtien()
+            }
+            return total
+        }
+
+        function maxsp() {
+            if (products.length === 0 ) {
+                return null
+            }
+            let maxproduct = products[0]
+            for (let product of products) {
+                if (product.price >= maxproduct.price) {
+                    maxproduct.price = product.price 
+                }
+                return maxproduct
+
+            }
+        }
+
+        let productInfo = "Sản phẩm ban đầu:<br>";
+        for (let product of products) {
+            productInfo += `- ${product.name}, Giá: ${product.price} VNĐ<br>`;
+        }
+        document.write(productInfo);
+       addsp(4, "Bút chì", 4000, 70);
+       document.write(products)
+
+    </script>
+</body>
+</html>
