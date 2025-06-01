@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Quản lý sản phẩm</h2>
+    <div class="container">
+        <input type="text" id="id" placeholder="ID">
+        <input type="text" id="name" placeholder="Tên">
+        <input type="number" id="price" placeholder="Giá">
+        <input type="number" id="quantity" placeholder="Số Lượng">
+        <button class="btn" onclick="addproduct() ">Thêm</button>
+    </div>
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Số Lượng</th>
+                <th>Tổng Giá Trị</th>
+                <th>Hàng Động</th>
+            </tr>
+            
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p id="totalvalue"></p>
+    <p id="highesprice"></p>
+
+
+
+    <script src="main.js"></script>
+</body>
+</html>
