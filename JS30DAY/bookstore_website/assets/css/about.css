@@ -1,0 +1,668 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Rất quan trọng để các đơn vị vh hoạt động chính xác trên các phần tử con */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang */
+}
+
+
+
+
+/* Header */
+/* Header-content */
+.header-content {
+    background-color: #081a28;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px 20px;
+}
+
+.content-contact {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-fb i,
+.contact-phone i {
+    margin-right: 15px;
+    color: #7ab278;
+}
+
+.content-icon {
+    display: flex;
+    gap: 30px;
+}
+
+.content-icon .content-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.content-title p {
+    color: #7ab278;
+    font-size: 1.2rem;
+}
+
+.content-ic {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+/* Header-Navigation */
+.header-nav { 
+   background-color: #f8f9fa;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding:20px 30px;
+}
+
+.header-nav .logo h2 {
+    color: #047857;
+    font-size: 2rem;
+}
+
+/* Navigation */
+.header-nav nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.header-nav nav ul li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+    padding: 10px;
+
+}
+
+.header-nav nav ul li a:hover,
+.header-nav nav ul li a:active {
+    color: #047857;
+    border-bottom: 2px solid #047857;
+}
+
+/* Icon */
+
+.header-nav .icon {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.header-nav .icon .icon-search:hover,
+.header-nav .icon .icon-shopping:hover {
+    color: #047857;
+}
+
+/* main */
+/* .banner-content {
+    width: 100%;
+    height: auto;
+} */
+
+.banner {
+    background-image: url(/JS30DAY/bookstore_website/assets/about-images/breadcrumb-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.banner-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+}
+
+.banner-text .banner-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.banner-title a,
+.banner-title i,
+.banner-title span {
+    font-size: 1.2rem;
+}
+
+.banner-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.banner-title span {
+    color: #7ab278;
+}
+
+/* main container */
+
+main {
+    margin-bottom: 100px;
+}
+
+.main-container {
+    margin-top: 100px;
+    padding: 20px;
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 30px;
+
+}
+
+.main-content {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+.content-1 {
+    padding: 30px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-2 {
+    padding: 30px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-3 {
+    padding: 30px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* .content-cover {
+    width: 90%;
+} */
+
+.content-date  {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.date ,
+.admin {
+    display: flex;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.date i,
+.admin i {
+    color: #7ab278;
+}
+
+.date span,
+.admin span {
+    color: #797979;
+}
+
+.content-tittle h2 {
+    font-size: 2rem;
+}
+
+.content-text p{
+    font-size: 1.2rem;
+    color: #797979;
+}
+
+.content-button button {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 20px 30px;
+    background-color: #7ab278;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient(to right, black, black );
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.6s ease;
+    cursor: pointer;
+}
+
+.content-button button:hover {
+    background-size: 100% 100%;
+}
+
+/* .content-cover .cover-image {
+    background-image: url(/assets/about-images/post-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+} */
+
+/* side-bar */
+.side-bar {
+
+    flex: 1.2;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-search {
+    padding: 50px 30px;
+    border: 1px solid gainsboro;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 10px;
+}
+
+.sidebar-search h3 {
+    padding-bottom: 20px ;
+    
+    font-size: 1.5rem;
+    border-bottom: 2px solid #7ab278;
+}
+
+.sidebar-search input {
+    font-size: 1.3rem;
+    height: 70px;
+    padding: 30px;
+}
+
+.sidebar-categories {
+    padding: 50px 30px;
+    border: 1px solid gainsboro;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.sidebar-categories h3 {
+    padding-bottom: 20px ;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #7ab278;
+}
+
+.categorys {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-categories .category {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.sidebar-categories .category p {
+    font-size: 1.2rem;
+    font-weight: 550;
+    cursor: pointer;
+
+}
+
+.sidebar-categories .category:hover {
+    color: #7ab278;
+}
+
+/* Recent-Post */
+
+.recent-post {
+    padding: 50px 30px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 30px; */
+}
+
+.recent-post .post {
+    /* margin-top: 30px; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.recent-post h3 {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #7ab278;
+}
+
+.post-1 {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+.post-2 {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+.post-3 {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+.post-date-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-date-text .post-date {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.post-date-text .post-date i {
+    color: #7ab278;
+    font-size: 1.2rem;
+}
+
+.post-date-text .post-date p {
+    font-size: 1.2rem;
+    color: #7ab278;
+}
+
+.post-text p {
+    /* color: black; */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* transition: color 0.5s ease;
+    cursor: pointer; */
+}
+
+.post-text .text-p a {
+    transition: color 0.5s ease;
+    cursor: pointer;
+}
+
+.post-text .text-p a {
+    text-decoration: none;
+    color: black;
+}
+
+.post-text .text-p a:hover {
+    color: #7ab278;
+}
+
+.post-text .text-p:hover {
+    color: #7ab278;
+}
+
+/* SideBar-Tags */
+
+.sidebar-tags {
+    padding: 50px 30px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+}
+
+.sidebar-tags h3 {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #7ab278;
+}
+
+.tags-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons-1,
+.buttons-2,
+.buttons-3 {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons-1 button,
+.buttons-2 button,
+.buttons-3 button {
+    padding: 15px 30px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s ease,
+                color 0.4s ease;
+}
+
+.buttons-1 button:hover,
+.buttons-2 button:hover,
+.buttons-3 button:hover {
+    background-color: #7ab278;
+    color: white;
+}
+
+/* pagination-list */
+
+.pagination-list {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pagination-list p {
+    background-color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.4s ease,
+                color 0.3s ease;
+}
+
+.pagination-list p:hover {
+    background-color: #7ab278;
+    color: white;
+}
+
+
+.pagination-list ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.pagination-list ul li a {
+    text-decoration: none;
+    padding: 15px 25px;
+    color: black;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    transition: background-color 0.4s ease,
+                color 0.3s ease;
+}
+
+.pagination-list ul li a:hover {
+    background-color: #7ab278;
+    color: white;
+}
+
+/* Footer */
+
+
+.container-head {
+    background-color: #3CA25A;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.content-head {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.content-head h2 {
+    font-size: 2rem;
+}
+
+.content-head span {
+    font-size: 1.2rem;
+}
+
+.content-search {
+    display: flex;
+    justify-content: center;
+}
+
+.content-head input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+}
+
+.content-head button {
+    padding: 7px 20px;
+    background-color: #047857;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.content-head button:hover {
+    background-color: #146c43;
+}
+
+.container-foot {
+    background-color: #0E2C3F;
+}
+
+.content-foot {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding: 20px 0;
+}
+
+.title-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.title-foot p {
+    font-size: 1.2rem;
+}
+
+.link-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.link-foot ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.link-foot ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.help-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.help-foot ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.help-foot ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.contact-foot p {
+    margin-top: 10px;
+}
+
+
+.copyright {
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 30px 60px;
+    border-top: 1px solid gainsboro;
+    margin-top: 10px;
+}
+

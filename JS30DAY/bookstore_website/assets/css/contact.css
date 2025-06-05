@@ -1,0 +1,301 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Rất quan trọng để các đơn vị vh hoạt động chính xác trên các phần tử con */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang */
+}
+
+
+
+
+/* Header */
+/* Header-content */
+.header-content {
+    background-color: #081a28;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px 20px;
+}
+
+.content-contact {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-fb i,
+.contact-phone i {
+    margin-right: 15px;
+    color: #7ab278;
+}
+
+.content-icon {
+    display: flex;
+    gap: 30px;
+}
+
+.content-icon .content-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.content-title p {
+    color: #7ab278;
+    font-size: 1.2rem;
+}
+
+.content-ic {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+/* Header-Navigation */
+.header-nav { 
+   background-color: #f8f9fa;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding:20px 30px;
+}
+
+.header-nav .logo h2 {
+    color: #047857;
+    font-size: 2rem;
+}
+
+/* Navigation */
+.header-nav nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.header-nav nav ul li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+    padding: 10px;
+
+}
+
+.header-nav nav ul li a:hover,
+.header-nav nav ul li a:active {
+    color: #047857;
+    border-bottom: 2px solid #047857;
+}
+
+/* Icon */
+
+.header-nav .icon {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.header-nav .icon .icon-search:hover,
+.header-nav .icon .icon-shopping:hover {
+    color: #047857;
+}
+
+/* main */
+/* .banner-content {
+    width: 100%;
+    height: auto;
+} */
+
+.banner {
+    background-image: url(/assets/about-images/breadcrumb-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.banner-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+}
+
+.banner-text .banner-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.banner-title a,
+.banner-title i,
+.banner-title span {
+    font-size: 1.2rem;
+}
+
+.banner-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.banner-title span {
+    color: #7ab278;
+}
+
+/* main */
+/* .banner-content {
+    width: 100%;
+    height: auto;
+} */
+
+.banner {
+    background-image: url(/JS30DAY/bookstore_website/assets/about-images/breadcrumb-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.banner-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+}
+
+.banner-text .banner-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.banner-title a,
+.banner-title i,
+.banner-title span {
+    font-size: 1.2rem;
+}
+
+.banner-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.banner-title span {
+    color: #7ab278;
+}
+
+/* main container */
+
+
+.main-container {
+    padding: 30px;
+    display: flex;
+    margin-top: 150px;
+    gap: 50px;
+}
+
+.side-bar {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-container {
+    padding: 30px;
+    background-color: #7ab278;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+} 
+
+.sidebar-1 {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+    color: white;
+    /* font-size: 1.2rem; */
+}
+
+
+.sidebar-2 {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+    color: white;
+    /* font-size: 1.2rem; */
+}
+
+.sidebar-3{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+    color: white;
+    /* font-size: 1.2rem; */
+}
+
+.sidebar-icon {
+    padding: 20px;
+    border: 2px dashed white;
+    border-radius: 50px;
+}
+
+.sidebar-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 10px;
+}
+
+.sidebar-text span {
+    
+}
+
+.sidebar-text p {
+    font-size: 1.4rem;    
+    font-weight: bold;
+}
+
+.sidebar-video {
+    width: 100%;
+}
+
+.sidebar-video iframe {
+    width: 100%;
+    height: 200px;
+    /* display: block; */
+   
+
+}
+
+.main-content {
+    flex: 3.5;
+}
+
+
+
