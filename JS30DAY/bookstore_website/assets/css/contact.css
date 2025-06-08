@@ -217,7 +217,7 @@ html, body {
 }
 
 .side-bar {
-    flex: 1.2;
+    flex: 1.6;
     display: flex;
     flex-direction: column;
 }
@@ -228,6 +228,7 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    border-radius: 30px 30px 0 0;
 } 
 
 .sidebar-1 {
@@ -237,6 +238,8 @@ html, body {
     gap: 20px;
     color: white;
     /* font-size: 1.2rem; */
+    padding-bottom: 20px;
+    border-bottom: 2px solid white;
 }
 
 
@@ -247,6 +250,8 @@ html, body {
     gap: 20px;
     color: white;
     /* font-size: 1.2rem; */
+    padding-bottom: 20px;
+    border-bottom: 2px solid white;
 }
 
 .sidebar-3{
@@ -256,6 +261,8 @@ html, body {
     gap: 20px;
     color: white;
     /* font-size: 1.2rem; */
+    /* padding-bottom: 20px;
+    border-bottom: 2px solid white; */
 }
 
 .sidebar-icon {
@@ -273,11 +280,11 @@ html, body {
 }
 
 .sidebar-text span {
-    
+    font-size: 1.2rem;
 }
 
 .sidebar-text p {
-    font-size: 1.4rem;    
+    font-size: 2rem;    
     font-weight: bold;
 }
 
@@ -289,13 +296,183 @@ html, body {
     width: 100%;
     height: 200px;
     /* display: block; */
+    border-radius: 0 0 30px 30px;
    
 
 }
 
 .main-content {
-    flex: 3.5;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
+.main-content h2 {
+    font-size: 2.7rem;
+    /* margin-bottom: 5px; */
+}
+
+.main-container .content-title {
+    color: #797979;
+    font-size: 1.2rem;
+    
+}
+
+.content-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-search  .text-name {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.content-search .search-name .inp-search {
+    font-size: 2.2rem;
+    padding: 10px;
+}
+
+.content-search .search-email .inp-search {
+    font-size: 2.2rem;
+    padding: 10px;
+}
+
+.content-write p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+
+
+/* Footer */
+.container-head {
+    background-color: #3CA25A;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.content-head {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.content-head h2 {
+    font-size: 2rem;
+}
+
+.content-head span {
+    font-size: 1.2rem;
+}
+
+.content-search {
+    display: flex;
+    justify-content: center;
+}
+
+.content-head input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+}
+
+.content-head button {
+    padding: 7px 20px;
+    background-color: #047857;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.content-head button:hover {
+    background-color: #146c43;
+}
+
+.container-foot {
+    background-color: #0E2C3F;
+}
+
+.content-foot {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding: 20px 0;
+}
+
+.title-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.title-foot p {
+    font-size: 1.2rem;
+}
+
+.link-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.link-foot ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.link-foot ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.help-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.help-foot ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.help-foot ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact-foot h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.contact-foot p {
+    margin-top: 10px;
+}
+
+
+.copyright {
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 30px 60px;
+    border-top: 1px solid gainsboro;
+    margin-top: 10px;
+}
+
 
 
 
