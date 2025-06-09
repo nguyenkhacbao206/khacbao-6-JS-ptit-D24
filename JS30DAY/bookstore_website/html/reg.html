@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="/JS30DAY/bookstore_website/assets/css/reg.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng ký</h2>
+        <form id="registerForm">
+            <div class="regfullname">
+                <p>Họ và tên:</p>
+                <input type="text" id="fullName" placeholder="Họ tên" required />
+            </div>
+            <div class="regphone">
+                <p>Số điện thoại:</p>
+                <input type="text" id="phoneNumber" placeholder="Số điện thoại" required />
+            </div>
+            <div class="regusername">
+                <p>Tên đăng nhập:</p>
+                <input type="text" id="regUsername" placeholder="Tên đăng nhập" required />
+            </div>
+            <div class="password">
+                <p>Mật khẩu:</p>
+                <input type="password" id="regPassword" placeholder="Mật khẩu" required />
+
+            </div>
+            <div class="regconfirm">
+                <p>Xác nhận lại mật khẩu: </p>
+                <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required />
+            </div>
+            <button type="submit">Đăng ký</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="/JS30DAY/bookstore_website/js/login.js"></script>
+</body>
+</html>

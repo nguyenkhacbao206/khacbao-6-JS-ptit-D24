@@ -95,6 +95,17 @@ html, body {
 }
 
 /* Icon */
+.header-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #7ab278;
+}
+
 
 .header-nav .icon {
     font-size: 1.5rem;
