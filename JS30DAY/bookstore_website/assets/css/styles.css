@@ -114,6 +114,10 @@ html, body {
     cursor: pointer;
 }
 
+.greentingSection {
+    display: none;
+}
+
 .header-nav .icon .icon-search:hover,
 .header-nav .icon .icon-shopping:hover {
     color: #047857;

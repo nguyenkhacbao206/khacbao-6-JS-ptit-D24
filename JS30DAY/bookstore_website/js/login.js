@@ -1,32 +1,27 @@
-// Đăng ký người dùng
-document.getElementById("registerForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const username = document.getElementById("regUsername").value;
-  const password = document.getElementById("regPassword").value;
 
-  const users = JSON.parse(localStorage.getItem("users")) || {};
 
-  if (users[username]) {
-    document.getElementById("message").textContent = "Tên đăng nhập đã tồn tại!";
-  } else {
-    users[username] = password;
-    localStorage.setItem("users", JSON.stringify(users));
-    document.getElementById("message").textContent = "Đăng ký thành công!";
-    document.getElementById("registerForm").reset();
-  }
-});
-
-// Đăng nhập người dùng
+// Đăng nhập
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const username = document.getElementById("loginUsername").value;
-  const password = document.getElementById("loginPassword").value;
 
+  const username = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const messageEl = document.getElementById("message");
+
+  // Lấy danh sách người dùng
   const users = JSON.parse(localStorage.getItem("users")) || {};
 
-  if (users[username] && users[username] === password) {
-    document.getElementById("message").textContent = "Đăng nhập thành công!";
+  if (users[username] && users[username].password === password) {
+    const user = users[username];
+    messageEl.textContent = `Đăng nhập thành công! Xin chào, ${user.fullName}`;
+    
+    // Ghi nhớ người dùng đang đăng nhập
+    localStorage.setItem("loggedInUser", username);
+    
+    // trở lại mà hình khi đăng nhâp thaanhf công
+    setTimeout(() => window.location.href = "http://127.0.0.1:5500/JS30DAY/bookstore_website/html/index.html", 1000); 
   } else {
-    document.getElementById("message").textContent = "Sai tên đăng nhập hoặc mật khẩu!";
+    messageEl.textContent = "Sai tên đăng nhập hoặc mật khẩu!";
   }
 });
+

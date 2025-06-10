@@ -31,3 +31,29 @@ form p {
     margin: 5px;
     font-size: 1.3rem;
 }
+
+.divider-or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 40px auto; /* Khoảng cách trên dưới, căn giữa */
+    max-width: 400px; /* Chiều rộng tối đa cho dòng "hoặc" */
+    color: #777; /* Màu chữ */
+    font-size: 1.2em;
+}
+
+.divider-or::before,
+.divider-or::after {
+    content: ''; 
+    flex-grow: 1;
+    height: 1px;
+    background-color: white; /* Màu của đường kẻ */
+}
+
+.divider-or::before {
+    margin-right: 10px; /* Khoảng cách giữa đường kẻ trái và chữ */
+}
+
+.divider-or::after {
+    margin-left: 10px; /* Khoảng cách giữa đường kẻ phải và chữ */
+}
