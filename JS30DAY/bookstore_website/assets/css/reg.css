@@ -1,19 +1,143 @@
-body {
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Rất quan trọng để các đơn vị vh hoạt động chính xác trên các phần tử con */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang */
+}
+
+
+
+
+/* Header */
+/* Header-content */
+.header-content {
+    background-color: #081a28;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    color: white;
+    padding: 15px 20px;
+}
+
+.content-contact {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-fb i,
+.contact-phone i {
+    margin-right: 15px;
+    color: #7ab278;
+}
+
+.content-icon {
+    display: flex;
+    gap: 30px;
+}
+
+.content-icon .content-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.content-title p {
+    color: #7ab278;
+    font-size: 1.2rem;
+}
+
+.content-ic {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+/* Header-Navigation */
+.header-nav { 
+   background-color: #f8f9fa;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding:20px 30px;
+}
+
+.header-nav .logo h2 {
+    color: #047857;
+    font-size: 2rem;
+}
+
+/* Navigation */
+.header-nav nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.header-nav nav ul li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+    padding: 10px;
+
+}
+
+.header-nav nav ul li a:hover,
+.header-nav nav ul li a:active {
+    color: #047857;
+    border-bottom: 2px solid #047857;
+}
+
+/* Icon */
+.header-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #7ab278;
+}
+
+
+.header-nav .icon {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+}
+
+/* .greentingSection {
+    display: none;
+} */
+
+.header-nav .icon .icon-search:hover,
+.header-nav .icon .icon-shopping:hover {
+    color: #047857;
 }
 
 .container {
     padding: 60px 120px;
-    background-color: gainsboro;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 85vh;
 }
 
 .container h2 {
     font-size: 2rem;
+    color: #36b381;
 }
 
 .container p {
@@ -21,7 +145,81 @@ body {
     font-size: 1.3rem;
 }
 
-button {
+.inp {
+    width: 400px;
+    height: 35px;
+    padding-left: 10px;
+    border: 1px solid gainsboro;
+    transition: all 0.3s ease;
+}
+
+.inp:hover {
+    border: 1px solid #36b381;
+}
+
+
+
+.btn {
+    width: 400px;
+    height: 35px;
+    cursor: pointer;
+    margin-top: 30px;
+    background-color: #36b381;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #7ab278;
+}
+
+/* .regbtn {
     margin-top: 20px;
     padding: 10px 30px;
+} */
+
+.divider-or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 40px auto; /* Khoảng cách trên dưới, căn giữa */
+    width: 100%;
+    max-width: 400px; 
+    color: #777; /* Màu chữ */
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.divider-or::before,
+.divider-or::after {
+    content: ''; 
+    flex-grow: 1;
+    height: 2px;
+    background-color: #a0a0a0; /* Màu của đường kẻ */
+}
+
+.divider-or::before {
+    margin-right: 10px; /* Khoảng cách giữa đường kẻ trái và chữ */
+}
+
+.divider-or::after {
+    margin-left: 10px; /* Khoảng cách giữa đường kẻ phải và chữ */
+}
+
+.btn-login {
+    text-decoration: none;
+    color: black;
+    padding: 8px 165px;
+    border: 1px solid gainsboro;
+    background-color: white;
+    transition: all 0.3s ease;
+
+}
+
+
+.btn-login:hover {
+    border: 1px solid #36b381;
+    color: #36b381;
 }

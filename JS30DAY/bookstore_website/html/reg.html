@@ -5,34 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
     <link rel="stylesheet" href="/JS30DAY/bookstore_website/assets/css/reg.css">
+    <link rel="stylesheet" href="/JS30DAY/bookstore_website/html/fontawesome/css/all.min.css">
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <div class="content-contact">
+                    <div class="contact-fb">
+                        <i class="fa-brands fa-facebook-f"></i>7500k Followers
+                    </div>
+                    <div class="contact-phone">
+                        <i class="fa-solid fa-phone"></i>+84 919 844 118
+                    </div>
+                </div>
+                <div class="content-icon">
+                    <div class="content-title">
+                        <p>30%</p>
+                        <span>Discount For The First Order!</span>
+                    </div>
+                    <div class="content-ic">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-vimeo-v"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="header-nav">
+                <div class="logo">
+                <h2>BookStore</h2>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/JS30DAY/bookstore_website/html/index.html">Trang chủ</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/books.html">Sách</a></li>
+                        <li><a href="#">Thể loại</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/about.html">Giới thiệu</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/contact.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="icon">
+                    <div class="login" id="authLinks">
+                        <a href="reg.html">Đăng ký</a> |
+                        <a href="login.html">Đăng nhập</a>
+                    </div>
+                    <!-- <div id="greentingSection">
+                        Xin chào: <span id="userFullName"></span> |
+                        <a href="#" id="logoutbtn">Đăng xuất</a>
+                    </div> -->
+                    <div class="icon-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="icon-shopping">
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                    </div>
+                </div>
+                </div>
+        </div>
+    </header>
+
     <div class="container">
         <h2>Đăng ký</h2>
         <form id="registerForm">
             <div class="regfullname">
                 <p>Họ và tên:</p>
-                <input type="text" id="fullName" placeholder="Họ tên" required />
+                <input class="inp" type="text" id="fullName" placeholder="Họ tên" required />
             </div>
             <div class="regphone">
                 <p>Số điện thoại:</p>
-                <input type="number" id="phoneNumber" placeholder="Số điện thoại" required />
+                <input class="inp" type="text" id="phoneNumber" placeholder="Số điện thoại" required />
             </div>
             <div class="regusername">
                 <p>Tên đăng nhập:</p>
-                <input type="text" id="regUsername" placeholder="Tên đăng nhập" required />
+                <input class="inp" type="text" id="regUsername" placeholder="Tên đăng nhập" required />
             </div>
             <div class="password">
                 <p>Mật khẩu:</p>
-                <input type="password" id="regPassword" placeholder="Mật khẩu" required />
+                <input class="inp" type="password" id="regPassword" placeholder="Mật khẩu" required />
 
             </div>
             <div class="regconfirm">
                 <p>Xác nhận lại mật khẩu: </p>
-                <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required />
+                <input class="inp" type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required />
 
             </div>
-            <button type="submit">Đăng ký</button>
+            <button class="btn" type="submit">Đăng ký</button>
+            <div class="divider-or">
+                <span>hoặc</span>
+            </div>
+            <a class="btn-login" href="login.html">Đăng nhập</a>
         </form>
         <p id="message"></p>
     </div>

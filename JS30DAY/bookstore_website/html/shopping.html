@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="/JS30DAY/bookstore_website/assets/css/login.css">
+    <title>shopping cart</title>
+    <link rel="stylesheet" href="/JS30DAY/bookstore_website/assets/css/shopping.css">
     <link rel="stylesheet" href="/JS30DAY/bookstore_website/html/fontawesome/css/all.min.css">
 </head>
 <body>
@@ -38,17 +38,17 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="/JS30DAY/bookstore_website/html/index.html">Trang chủ</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/books.html">Sách</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/index.html" class="active">Trang chủ</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/books.html" >Sách</a></li>
                         <li><a href="#">Thể loại</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/about.html">Giới thiệu</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/contact.html">Liên hệ</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/about.html" >Giới thiệu</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/contact.html" >Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div class="icon">
                     <div class="login" id="authLinks">
-                        <a href="reg.html">Đăng ký</a> |
-                        <a href="login.html">Đăng nhập</a>
+                        <a class="authlink" href="reg.html">Đăng ký</a> |
+                        <a class="authlink" href="login.html">Đăng nhập</a>
                     </div>
                     <div id="greentingSection" class="greentingSection">
                         Xin chào: <span id="userFullName"></span> |
@@ -65,32 +65,5 @@
                 </div>
         </div>
     </header>
-
-
-
-    <div class="container">
-        <h2>Đăng nhập</h2>
-        <form id="loginForm">
-            <div class="logiusername">
-                 <p>Tên đăng nhập:</p>
-                 <input class="inp inptext" type="text" id="loginUsername" placeholder="Tên đăng nhập" required />
-            </div>
-            <div class="loginpassword">
-                <p>Mật khẩu: </p>
-                <input class="inp inppass" type="password" id="loginPassword" placeholder="Mật khẩu" required />
-            </div>
-            <p style="color: red; font-size: 1rem;" id="message"></p>
-            <button class="btn" type="submit">Đăng nhập</button>
-            <div class="divider-or">
-                <span>hoặc</span>
-            </div>
-            <p class="register">Bạn chưa có tài khoản ? <a class="reg" href="reg.html">Đăng ký ngay</a></p>
-        </form>
-
-        <!-- <p id="message"></p> -->
-    </div>
-  
-
-  <script src="/JS30DAY/bookstore_website/js/login.js"></script>
 </body>
 </html>

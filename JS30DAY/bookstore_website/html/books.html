@@ -40,7 +40,7 @@
                 <nav>
                     <ul>
                         <li><a href="/JS30DAY/bookstore_website/html/index.html">Trang chủ</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/books.html">Sách</a></li>
+                        <li><a href="/JS30DAY/bookstore_website/html/books.html" class="active">Sách</a></li>
                         <li><a href="#">Thể loại</a></li>
                         <li><a href="/JS30DAY/bookstore_website/html/about.html">Giới thiệu</a></li>
                         <li><a href="/JS30DAY/bookstore_website/html/contact.html">Liên hệ</a></li>
@@ -48,6 +48,14 @@
 
                 </nav>
                 <div class="icon">
+                    <div class="login" id="authLinks">
+                        <a href="reg.html">Đăng ký</a> |
+                        <a href="login.html">Đăng nhập</a>
+                    </div>
+                    <div id="greentingSection" class="greentingSection">
+                        Xin chào: <span id="userFullName"></span> |
+                        <a href="#" id="logoutbtn">Đăng xuất</a>
+                    </div>
                     <div class="icon-search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
@@ -255,5 +263,7 @@
             </div>
         </div>
     </footer>    
+
+    <script src="/JS30DAY/bookstore_website/js/books.js"></script>
 </body>
 </html>

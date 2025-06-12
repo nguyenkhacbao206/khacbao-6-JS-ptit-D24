@@ -14,6 +14,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   if (users[username] && users[username].password === password) {
     const user = users[username];
     messageEl.textContent = `Đăng nhập thành công! Xin chào, ${user.fullName}`;
+    messageEl.style.color = "green"
     
     // Ghi nhớ người dùng đang đăng nhập
     localStorage.setItem("loggedInUser", username);
@@ -22,6 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     setTimeout(() => window.location.href = "http://127.0.0.1:5500/JS30DAY/bookstore_website/html/index.html", 1000); 
   } else {
     messageEl.textContent = "Sai tên đăng nhập hoặc mật khẩu!";
+    messageEl.style.color = "red"
   }
 });
 

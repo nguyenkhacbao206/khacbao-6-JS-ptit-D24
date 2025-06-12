@@ -1,3 +1,17 @@
+// làm active cho phần nav ở header
+//  lấy ra và lưu tên file HTML hiện tại đang truy cập
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPath = window.location.pathname;
+  const menuLinks = document.querySelectorAll(".header-nav nav ul li a");
+
+  menuLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("active");
+    }
+  });
+});
+
+// làm slide cho phần feature
 const listFeature = document.getElementById("list-feature");
 const slides = document.querySelectorAll(".feature-container");
 let current = 1;

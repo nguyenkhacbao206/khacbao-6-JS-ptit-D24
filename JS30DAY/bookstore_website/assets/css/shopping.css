@@ -10,7 +10,6 @@ html, body {
     padding: 0;
     height: 100%; /* Rất quan trọng để các đơn vị vh hoạt động chính xác trên các phần tử con */
     overflow-x: hidden; /* Ngăn thanh cuộn ngang */
-    background-color: #f4f4f4;
 }
 
 
@@ -107,6 +106,10 @@ html, body {
     color: #7ab278;
 }
 
+.authlink:hover {
+    color:#7ab278;
+}
+
 
 .header-nav .icon {
     font-size: 1.5rem;
@@ -123,103 +126,3 @@ html, body {
 .header-nav .icon .icon-shopping:hover {
     color: #047857;
 }
-
-.container {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 60px 90px;
-}
-
-.container h2  {
-    font-size: 2rem;
-    color: #36b381;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form p {
-    margin: 5px;
-    font-size: 1.3rem;
-}
-
-.inp {
-    width: 400px;
-    height: 35px;
-    padding-left: 10px;
-    border: 1px solid gainsboro;
-    transition: all 0.3s ease;
-}
-
-.inp:hover {
-    border: 1px solid #36b381;
-}
-
-
-
-.btn {
-    width: 400px;
-    height: 35px;
-    cursor: pointer;
-    margin-top: 30px;
-    background-color: #36b381;
-    color: white;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #7ab278;
-}
-
-
-.divider-or {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 40px auto; /* Khoảng cách trên dưới, căn giữa */
-    width: 100%;
-    max-width: 400px; 
-    color: #777; /* Màu chữ */
-    font-size: 1.2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.divider-or::before,
-.divider-or::after {
-    content: ''; 
-    flex-grow: 1;
-    height: 2px;
-    background-color: #a0a0a0; /* Màu của đường kẻ */
-}
-
-.divider-or::before {
-    margin-right: 10px; /* Khoảng cách giữa đường kẻ trái và chữ */
-}
-
-.divider-or::after {
-    margin-left: 10px; /* Khoảng cách giữa đường kẻ phải và chữ */
-}
-
-.register {
-    text-align: center;
-}
-
-.reg {
-    text-decoration: none;
-    color: #36b381;
-}
-
-.reg:hover {
-    color: #7ab278;
-}
-

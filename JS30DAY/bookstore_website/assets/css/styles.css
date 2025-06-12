@@ -89,7 +89,7 @@ html, body {
 }
 
 .header-nav nav ul li a:hover,
-.header-nav nav ul li a:active {
+.header-nav nav ul li a.active {
     color: #047857;
     border-bottom: 2px solid #047857;
 }
@@ -104,6 +104,10 @@ html, body {
 
 .header-nav a:hover {
     color: #7ab278;
+}
+
+.authlink:hover {
+    color:#7ab278;
 }
 
 
@@ -593,7 +597,7 @@ html, body {
 .book-list .book-item {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgb(0 ,0 ,0, 0.4);
+    box-shadow: 0 2px 8px rgb(0 ,0 ,0, 0.2);
     width: 18vw;
     margin-bottom: 50px;
     display: flex;
@@ -602,17 +606,18 @@ html, body {
     flex-direction: column;
     /* text-align: center;ss */
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.book-list .book-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgb(0 ,0 ,0, 0.2);
 }
 
 /* .book-list .book-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgb(0 ,0 ,0, 0.6);
-} */
-
-.book-list .book-item:hover {
     transform:scale(1.05);
     box-shadow: 0 10px 20px rgb(0 ,0 ,0, 0.6);
-}
+} */
 
 
 
@@ -636,7 +641,7 @@ html, body {
 .book-img-1 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh1.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -646,7 +651,7 @@ html, body {
 .book-img-2 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh2.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -656,7 +661,7 @@ html, body {
 .book-img-3 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh3.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -666,7 +671,7 @@ html, body {
 .book-img-4 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh4.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -676,7 +681,7 @@ html, body {
 .book-img-5 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh5.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh5.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -685,7 +690,7 @@ html, body {
 .book-img-6 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh6.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh6.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -703,7 +708,7 @@ html, body {
 .book-img-8 {
     width: 100%;
     background-image: 
-    url('/assets/images/anh7.jpg');
+    url('/JS30DAY/bookstore_website/assets/images/anh7.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
