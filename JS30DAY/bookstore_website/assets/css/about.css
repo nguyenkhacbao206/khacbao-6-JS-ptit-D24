@@ -124,7 +124,7 @@ html, body {
 } */
 
 .banner {
-    background-image: url(/JS30DAY/bookstore_website/assets/about-images/breadcrumb-bg.jpg);
+    background-image: url(/assets/about-images/breadcrumb-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

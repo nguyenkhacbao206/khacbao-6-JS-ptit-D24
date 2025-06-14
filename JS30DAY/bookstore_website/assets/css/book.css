@@ -124,9 +124,54 @@ html, body {
     height: auto;
 } */
 
-main {
-    margin-bottom: 100px;
+.banner {
+    background-image: url(/assets/about-images/breadcrumb-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
 }
+
+.banner-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+}
+
+.banner-text .banner-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.banner-title a,
+.banner-title i,
+.banner-title span {
+    font-size: 1.2rem;
+}
+
+.banner-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.banner-title span {
+    color: #7ab278;
+}
+
+/* main */
+/* .banner-content {
+    width: 100%;
+    height: auto;
+} */
 
 .banner {
     background-image: url(/JS30DAY/bookstore_website/assets/about-images/breadcrumb-bg.jpg);

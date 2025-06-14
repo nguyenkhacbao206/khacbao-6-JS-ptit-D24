@@ -20,7 +20,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     localStorage.setItem("loggedInUser", username);
     
     // trở lại mà hình khi đăng nhâp thaanhf công
-    setTimeout(() => window.location.href = "http://127.0.0.1:5500/JS30DAY/bookstore_website/html/index.html", 1000); 
+    setTimeout(() => window.location.href = "http://127.0.0.1:5501/html/index.html", 1000); 
   } else {
     messageEl.textContent = "Sai tên đăng nhập hoặc mật khẩu!";
     messageEl.style.color = "red"

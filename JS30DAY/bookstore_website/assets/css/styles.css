@@ -133,7 +133,7 @@ html, body {
 
 
 .hero-container {
-    background-image: url(/JS30DAY/bookstore_website/assets/images/hero-bg-1.jpg);
+    background-image: url(/assets/images/hero-bg-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -641,7 +641,7 @@ html, body {
 .book-img-1 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh1.jpg');
+    url('/assets/images/anh1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -651,7 +651,7 @@ html, body {
 .book-img-2 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh2.jpg');
+    url('/assets/images/anh2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -661,7 +661,7 @@ html, body {
 .book-img-3 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh3.jpg');
+    url('/assets/images/anh3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -671,7 +671,7 @@ html, body {
 .book-img-4 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh4.jpg');
+    url('/assets/images/anh4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -681,7 +681,7 @@ html, body {
 .book-img-5 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh5.jpg');
+    url('/assets/images/anh5.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -690,7 +690,7 @@ html, body {
 .book-img-6 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh6.jpg');
+    url('/assets/images/anh6.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
@@ -708,7 +708,7 @@ html, body {
 .book-img-8 {
     width: 100%;
     background-image: 
-    url('/JS30DAY/bookstore_website/assets/images/anh7.jpg');
+    url('/assets/images/anh7.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;

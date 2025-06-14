@@ -125,3 +125,32 @@ logoutBtn?.addEventListener("click", function (e) {
     authLinks.style.display = "inline";
     // location.reload();
 });
+
+
+// xử lý thêm vào giỏ hàng
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".book-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const bookItem = this.closest(".book-item"); // lấy phần tử cha
+            const name = bookItem.querySelector(".book-title").textContent.trim();
+            const priceText = bookItem.querySelector(".book-price").textContent.trim(); 
+            
+            // Chuyển "24,99 đ" thành số 24990
+            const price = parseFloat(priceText.replace("đ", "").replace(",", "").trim());
+
+            // Lấy giỏ hàng hiện tại
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Thêm sản phẩm
+            cart.push({ name, price });
+
+            // Lưu lại
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("đã thêm vào giỏ hàng")
+            // Chuyển sang trang giỏ hàng
+            // window.location.href = "shopping.html";
+        });
+    });
+});

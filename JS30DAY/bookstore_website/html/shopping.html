@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopping cart</title>
-    <link rel="stylesheet" href="/JS30DAY/bookstore_website/assets/css/shopping.css">
-    <link rel="stylesheet" href="/JS30DAY/bookstore_website/html/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/shopping.css">
+    <link rel="stylesheet" href="/html/fontawesome/css/all.min.css">
 </head>
 <body>
     <header>
@@ -38,11 +38,11 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="/JS30DAY/bookstore_website/html/index.html" class="active">Trang chủ</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/books.html" >Sách</a></li>
+                        <li><a href="/html/index.html" class="active">Trang chủ</a></li>
+                        <li><a href="/html/books.html" >Sách</a></li>
                         <li><a href="#">Thể loại</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/about.html" >Giới thiệu</a></li>
-                        <li><a href="/JS30DAY/bookstore_website/html/contact.html" >Liên hệ</a></li>
+                        <li><a href="/html/about.html" >Giới thiệu</a></li>
+                        <li><a href="/html/contact.html" >Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div class="icon">
@@ -65,5 +65,18 @@
                 </div>
         </div>
     </header>
+    <main>
+        <h1>Giỏ Hàng Của Bạn</h1>
+
+        <div id="cart-items-display">
+            <p class="empty-cart-message">Giỏ hàng của bạn đang trống.</p>
+        </div>
+
+        <div class="cart-actions">
+            <a href="/html/books.html" class="back-to-shop">Tiếp tục mua sắm</a>
+            </div>
+    </main>
+
+    <script src="/js/shopping.js"></script>
 </body>
 </html>
