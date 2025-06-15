@@ -878,64 +878,55 @@ html, body {
 
 /* Testimonial Section */
 
-.testimonial-card {
-    margin-top: 80px;
-  
-}
+ .testimonial-card { margin-top: 80px; }
 
-.testimonial-card h2 {
+  .testimonial-card h2 {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 30px;
-}
+  }
 
-.testimonial-container {
+  .testimonial-container {
     padding: 90px 50px;
     background-color: #f9f5f0;
-}
+    overflow: hidden;                  /* ← thêm: ẩn phần tràn */
+  }
 
-.testimonial-container .list-card {
+  .testimonial-container .list-card {
     display: flex;
-    justify-content: center;
     gap: 50px;
-}
+    justify-content: flex-start;       /* ← đổi: để trượt mượt */
+    will-change: transform;            /* ← thêm: tối ưu hiệu năng */
+  }
 
-.item-card {
-    width: 350px;
+  .item-card {
+    flex: 0 0 350px;                   /* ← đổi: cố định chiều rộng */
     padding: 40px 30px;
-    /* padding: 30px 60px; */
     background-color: white;
     border-radius: 15px;
-}
+  }
 
-.testimonial-header .testimonial-name {
+  .testimonial-header .testimonial-name {
     font-size: 1.4rem;
     font-weight: bold;
-}
+  }
 
-.testimonial-header .testimonial-user {
+  .testimonial-header .testimonial-user {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
     border-bottom: 1px solid #9e9e9e;
     padding: 10px 0;
-}
+  }
 
-.testimonial-star {
-    color: #027a36;
-    font-size: 1.3rem;
-}
+  .testimonial-star { color: #027a36; font-size: 1.3rem; }
+  .testimonial-date { color: #9e9e9e; }
 
-.testimonial-date {
-    color: #9e9e9e;
-}
-
-.testimonial-title {
+  .testimonial-title {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 /* Footer */

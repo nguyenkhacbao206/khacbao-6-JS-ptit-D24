@@ -127,12 +127,24 @@ logoutBtn?.addEventListener("click", function (e) {
 });
 
 
-// xử lý thêm vào giỏ hàng
+
+// Xử lý thêm vào giỏ hàng
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".book-btn");
 
     buttons.forEach(button => {
         button.addEventListener("click", function () {
+            // const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+            
+            // if (!isLoggedIn) {
+            //     alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!");
+            //     window.location.href = "/html/login.html"; // <-- đổi nếu cần
+            //     return;
+            // }
+            // Tạo key riêng cho từng tài khoản
+            // const username = userData.username;
+            // const cartKey = `cart_${username}`; 
+            // xử lý khi thêm vào giỏ hàng khi đăng nhập
             const bookItem = this.closest(".book-item"); // lấy phần tử cha
             const name = bookItem.querySelector(".book-title").textContent.trim();
             const priceText = bookItem.querySelector(".book-price").textContent.trim(); 
@@ -140,17 +152,48 @@ document.addEventListener("DOMContentLoaded", function () {
             // Chuyển "24,99 đ" thành số 24990
             const price = parseFloat(priceText.replace("đ", "").replace(",", "").trim());
 
+            // Lấy div có background-image (giả sử class là bắt đầu bằng "book-img")
+            const imgDiv = bookItem.querySelector("[class^='book-img']");
+            const style = window.getComputedStyle(imgDiv);
+            const imageUrl = style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+
             // Lấy giỏ hàng hiện tại
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            // Thêm sản phẩm
-            cart.push({ name, price });
+            // Kiểm tra sản phẩm đã tồn tại chưa
+            const existingIndex = cart.findIndex(item => item.name === name);
+            if (existingIndex !== -1) {
+                cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+            } else {
+                cart.push({ name, price, quantity: 1, imageUrl });
+            }
 
             // Lưu lại
             localStorage.setItem("cart", JSON.stringify(cart));
-            alert("đã thêm vào giỏ hàng")
-            
-            // window.location.href = "shopping.html";
+            alert(`Đã thêm "${name}" vào giỏ hàng`);
         });
     });
 });
+
+// xử lý vòng lặp di chuyển vô hạn
+
+const track  = document.getElementById('testimonialTrack');
+  const speed  = 0.6;         // px mỗi frame – chỉnh nhỏ hơn để chậm hơn
+  let offset   = 0;
+
+  // Nhân đôi nội dung để tạo hiệu ứng liền mạch A‑B‑…‑A‑B‑…
+  track.innerHTML += track.innerHTML;
+
+  let pause = false;          // pause khi hover (tùy chọn)
+//   track.addEventListener('mouseenter', () => pause = true);
+//   track.addEventListener('mouseleave', () => pause = false);
+
+  function animate() {
+    // if (!pause) offset += speed;
+    offset += speed;
+    // Khi đã cuộn hết nửa track (hết phần gốc) → reset
+    if (offset >= track.scrollWidth / 2) offset = 0;
+    track.style.transform = `translateX(${-offset}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();

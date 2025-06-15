@@ -1,7 +1,7 @@
 
 
 // Hàm Thêm Sản Phẩm Vào Giỏ Hàng 
-function addToCart(productName, productPrice, imageClass) {
+function addToCart(productName, productPrice, imageUrl) {
     // Ép kiểu chắc chắn
     const price = parseFloat(productPrice.toString().replace(/[^\d.]/g, ''));
 
@@ -32,6 +32,15 @@ function addToCart(productName, productPrice, imageClass) {
 
 // --- 3. Hàm Hiển Thị Giỏ Hàng Lên Màn Hình
 function displayCartItems() {
+    
+//     if (!userData) {
+//     alert("Bạn cần đăng nhập để xem giỏ hàng.");
+//     window.location.href = "/html/login.html"; 
+//     return;
+//   }
+
+//   const username = userData.username;
+//   const cartKey = `cart_${username}`;
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const container = document.getElementById("cart-items-display");
 
