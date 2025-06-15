@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Lưu lại
             localStorage.setItem("cart", JSON.stringify(cart));
             alert("đã thêm vào giỏ hàng")
-            // Chuyển sang trang giỏ hàng
+            
             // window.location.href = "shopping.html";
         });
     });

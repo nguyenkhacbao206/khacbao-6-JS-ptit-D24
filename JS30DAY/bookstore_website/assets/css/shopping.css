@@ -126,3 +126,112 @@ html, body {
 .header-nav .icon .icon-shopping:hover {
     color: #047857;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    color: #444;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* height: 100%; */
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.quantity-controls button {
+    padding: 4px 8px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    
+}
+
+.quantity-controls button:hover {
+    background-color: #ddd;
+}
+
+.remove-item-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.remove-item-btn:hover {
+    background-color: #e60000;
+}
+
+tfoot {
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+.total-row td {
+    padding-top: 15px;
+    font-size: 1.1em;
+    color: #222;
+}
+
+.back-to-shop {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-to-shop:hover {
+    background-color: #0056b3;
+}
+
+/* css ảnh sản phâmr */
+.cart-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-image-preview {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
