@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="/assets/css/login.css">
-    <link rel="stylesheet" href="/html/fontawesome/css/all.min.css">
+    <title>admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../html/fontawesome/css/all.min.css">
 </head>
 <body>
     <header>
@@ -39,21 +39,19 @@
                 <nav>
                     <ul>
                         <li><a href="/html/index.html">Trang chủ</a></li>
-                        <li><a href="/html/books.html">Sách</a></li>
+                        <li><a href="/html/books.html" >Sách</a></li>
                         <li><a href="#">Thể loại</a></li>
-                        <li><a href="/html/about.html">Giới thiệu</a></li>
-                        <li><a href="/html/contact.html">Liên hệ</a></li>
+                        <li><a href="/html/about.html" >Giới thiệu</a></li>
+                        <li><a href="/html/contact.html" >Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div class="icon">
-                    <div class="login" id="authLinks">
-                        <a href="reg.html">Đăng ký</a> |
-                        <a href="login.html">Đăng nhập</a>
+                    <div class="admin-info">
+                        <span>👋 Xin chào, <strong>admin</strong></span>
+                        |
+                        <a href="#" id="admin-logout">Đăng xuất</a>
                     </div>
-                    <div id="greentingSection" class="greentingSection">
-                        Xin chào: <span id="userFullName"></span> |
-                        <a href="#" id="logoutbtn">Đăng xuất</a>
-                    </div>
+                    
                     <div class="icon-shopping">
                         <a href="/html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
 
@@ -65,32 +63,34 @@
                 </div>
         </div>
     </header>
+    <main>
+  <div class="admin-tabs">
+    <button onclick="showSection('add')">➕ Thêm sản phẩm</button>
+    <button onclick="showSection('manage')">📚 Quản lý sản phẩm</button>
+  </div>
 
+  <!-- Thêm sản phẩm -->
+  <div id="add-section">
+    <h2>Thêm sản phẩm mới</h2>
+    <form id="add-product-form">
+      <input type="text" id="product-name" placeholder="Tên sản phẩm" required>
+      <input type="text" id="product-price" placeholder="Giá (VD: 49900)" required>
+      <input type="file" id="product-image" accept="image/*" required>
+      <input type="text" id="product-author" placeholder="Tên tác giả" required>
+      <textarea id="product-description" placeholder="Mô tả sản phẩm" rows="4" required></textarea>
+      <input type="number" id="product-rating" placeholder="Số sao (1 - 5)" min="1" max="5" step="0.5" required>
+      <button type="submit">Thêm sản phẩm</button>
+    </form>
+    <p id="admin-message"></p>
+  </div>
 
+  <!-- Quản lý sản phẩm -->
+  <div id="manage-section" style="display: none;">
+    <h2>Danh sách sản phẩm đã thêm</h2>
+    <div id="admin-books-list"></div>
+  </div>
+</main>
 
-    <div class="container">
-        <h2>Đăng nhập</h2>
-        <form id="loginForm">
-            <div class="logiusername">
-                 <p>Tên đăng nhập:</p>
-                 <input class="inp inptext" type="text" id="loginUsername" placeholder="Tên đăng nhập" required />
-            </div>
-            <div class="loginpassword">
-                <p>Mật khẩu: </p>
-                <input class="inp inppass" type="password" id="loginPassword" placeholder="Mật khẩu" required />
-            </div>
-            <p style="color: red; font-size: 1rem;" id="message"></p>
-            <button class="btn" type="submit">Đăng nhập</button>
-            <div class="divider-or">
-                <span>hoặc</span>
-            </div>
-            <p class="register">Bạn chưa có tài khoản ? <a class="reg" href="reg.html">Đăng ký ngay</a></p>
-        </form>
-
-        <!-- <p id="message"></p> -->
-    </div>
-  
-
-  <script src="/js/login.js"></script>
+    <script src="../js/admin.js"></script>
 </body>
 </html>

@@ -90,8 +90,6 @@ document.querySelector("#btn-prev").addEventListener("click", () => {
 
 
 // xử lý hiện xin chào tên và đăng xuất
-
-
 // xử lý xin chào tên
 
 const loggedInUsername = localStorage.getItem("loggedInUser");
@@ -118,12 +116,9 @@ if (loggedInUsername && users[loggedInUsername]) {
 logoutBtn?.addEventListener("click", function (e) {
     e.preventDefault();
     localStorage.removeItem("loggedInUser");
-    // ẩn phầ xin chào và đăng xuất
      greentingSection.style.display = "none";
-
-    // Hiện lại phần Đăng ký / Đăng nhập
     authLinks.style.display = "inline";
-    // location.reload();
+   
 });
 
 
@@ -134,31 +129,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach(button => {
         button.addEventListener("click", function () {
-            // const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-            
-            // if (!isLoggedIn) {
-            //     alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!");
-            //     window.location.href = "/html/login.html"; // <-- đổi nếu cần
-            //     return;
-            // }
-            // Tạo key riêng cho từng tài khoản
-            // const username = userData.username;
-            // const cartKey = `cart_${username}`; 
-            // xử lý khi thêm vào giỏ hàng khi đăng nhập
-            const bookItem = this.closest(".book-item"); // lấy phần tử cha
+            // Lấy tên người dùng đã đăng nhập
+            const username = localStorage.getItem("loggedInUser");
+            if (!username) {
+                alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!");
+                window.location.href = "/html/login.html";
+                return;
+            }
+
+            // Lấy phần tử chứa thông tin sách
+            const bookItem = this.closest(".book-item");
             const name = bookItem.querySelector(".book-title").textContent.trim();
-            const priceText = bookItem.querySelector(".book-price").textContent.trim(); 
-            
-            // Chuyển "24,99 đ" thành số 24990
+            const priceText = bookItem.querySelector(".book-price").textContent.trim();
+
+            // Chuyển giá về số
             const price = parseFloat(priceText.replace("đ", "").replace(",", "").trim());
 
-            // Lấy div có background-image (giả sử class là bắt đầu bằng "book-img")
+            // Lấy ảnh từ background-image
             const imgDiv = bookItem.querySelector("[class^='book-img']");
             const style = window.getComputedStyle(imgDiv);
             const imageUrl = style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
 
-            // Lấy giỏ hàng hiện tại
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            // Giỏ hàng riêng cho người dùng
+            const cartKey = `cart_${username}`;
+            const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
             // Kiểm tra sản phẩm đã tồn tại chưa
             const existingIndex = cart.findIndex(item => item.name === name);
@@ -168,17 +162,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 cart.push({ name, price, quantity: 1, imageUrl });
             }
 
-            // Lưu lại
-            localStorage.setItem("cart", JSON.stringify(cart));
+            // Lưu lại vào giỏ của người dùng
+            localStorage.setItem(cartKey, JSON.stringify(cart));
+
             alert(`Đã thêm "${name}" vào giỏ hàng`);
+            updateCartCount(); // Gọi lại đếm
         });
     });
 });
 
+
 // xử lý vòng lặp di chuyển vô hạn
 
 const track  = document.getElementById('testimonialTrack');
-  const speed  = 0.6;         // px mỗi frame – chỉnh nhỏ hơn để chậm hơn
+  const speed  = 0.6;  
   let offset   = 0;
 
   // Nhân đôi nội dung để tạo hiệu ứng liền mạch A‑B‑…‑A‑B‑…

@@ -1,0 +1,268 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Rất quan trọng để các đơn vị vh hoạt động chính xác trên các phần tử con */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang */
+}
+
+
+
+/* Header */
+/* Header-content */
+.header-content {
+    background-color: #081a28;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px 20px;
+}
+
+.content-contact {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-fb i,
+.contact-phone i {
+    margin-right: 15px;
+    color: #7ab278;
+}
+
+.content-icon {
+    display: flex;
+    gap: 30px;
+}
+
+.content-icon .content-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.content-title p {
+    color: #7ab278;
+    font-size: 1.2rem;
+}
+
+.content-ic {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+/* Header-Navigation */
+.header-nav { 
+   background-color: #f8f9fa;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding:20px 30px;
+}
+
+.header-nav .logo h2 {
+    color: #047857;
+    font-size: 2rem;
+}
+
+/* Navigation */
+.header-nav nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.header-nav nav ul li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+    padding: 10px;
+
+}
+
+.header-nav nav ul li a:hover,
+.header-nav nav ul li a.active {
+    color: #047857;
+    border-bottom: 2px solid #047857;
+}
+
+/* Icon */
+.header-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #7ab278;
+}
+
+.authlink:hover {
+    color:#7ab278;
+}
+
+
+.header-nav .icon {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.greentingSection {
+    display: none;
+}
+
+.header-nav .icon .icon-search:hover,
+.header-nav .icon .icon-shopping:hover {
+    color: #047857;
+}
+
+/* form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #219150;
+} */
+
+/* Container chung cho checkout */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+  min-height: calc(100vh - 150px);
+}
+
+.checkout-container {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.checkout-container h2,
+.checkout-container h3 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+/* Danh sách sản phẩm */
+#checkout-summary {
+  margin-bottom: 35px;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.checkout-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+  border: 1px solid #d1d5db;
+}
+
+.checkout-item-info {
+  flex: 1;
+}
+
+.checkout-item-info span {
+  display: block;
+  font-size: 17px;
+  color: #334155;
+  margin-bottom: 5px;
+}
+
+#checkout-summary p {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #047857;
+  margin-top: 15px;
+}
+
+/* Form */
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#checkout-form input,
+#checkout-form select {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  transition: all 0.3s ease;
+  background-color: #f9fafb;
+}
+
+#checkout-form input:focus,
+#checkout-form select:focus {
+  border-color: #047857;
+  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.2);
+  background-color: #fff;
+  outline: none;
+}
+
+#checkout-form button {
+  padding: 14px;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #047857;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+#checkout-form button:hover {
+  background-color: #065f46;
+  transform: scale(1.02);
+}

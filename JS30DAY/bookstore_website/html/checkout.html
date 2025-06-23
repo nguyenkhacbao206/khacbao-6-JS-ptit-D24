@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="/assets/css/login.css">
-    <link rel="stylesheet" href="/html/fontawesome/css/all.min.css">
+    <title>checkout</title>
+    <link rel="stylesheet" href="../assets/css/checkout.css">
+    <link rel="stylesheet" href="../html/fontawesome/css/all.min.css">
 </head>
 <body>
     <header>
@@ -39,21 +39,22 @@
                 <nav>
                     <ul>
                         <li><a href="/html/index.html">Trang chủ</a></li>
-                        <li><a href="/html/books.html">Sách</a></li>
+                        <li><a href="/html/books.html" >Sách</a></li>
                         <li><a href="#">Thể loại</a></li>
-                        <li><a href="/html/about.html">Giới thiệu</a></li>
-                        <li><a href="/html/contact.html">Liên hệ</a></li>
+                        <li><a href="/html/about.html" >Giới thiệu</a></li>
+                        <li><a href="/html/contact.html" >Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div class="icon">
                     <div class="login" id="authLinks">
-                        <a href="reg.html">Đăng ký</a> |
-                        <a href="login.html">Đăng nhập</a>
+                        <a class="authlink" href="reg.html">Đăng ký</a> |
+                        <a class="authlink" href="login.html">Đăng nhập</a>
                     </div>
                     <div id="greentingSection" class="greentingSection">
                         Xin chào: <span id="userFullName"></span> |
                         <a href="#" id="logoutbtn">Đăng xuất</a>
                     </div>
+                    
                     <div class="icon-shopping">
                         <a href="/html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
 
@@ -65,32 +66,34 @@
                 </div>
         </div>
     </header>
+    <main>
+        <div class="checkout-container">
+            <h2>Xác nhận đơn hàng</h2>
 
-
-
-    <div class="container">
-        <h2>Đăng nhập</h2>
-        <form id="loginForm">
-            <div class="logiusername">
-                 <p>Tên đăng nhập:</p>
-                 <input class="inp inptext" type="text" id="loginUsername" placeholder="Tên đăng nhập" required />
+            <!-- Thông tin giỏ hàng -->
+            <div id="checkout-summary">
+                <!-- Các sản phẩm sẽ được render ở đây bằng JS -->
             </div>
-            <div class="loginpassword">
-                <p>Mật khẩu: </p>
-                <input class="inp inppass" type="password" id="loginPassword" placeholder="Mật khẩu" required />
-            </div>
-            <p style="color: red; font-size: 1rem;" id="message"></p>
-            <button class="btn" type="submit">Đăng nhập</button>
-            <div class="divider-or">
-                <span>hoặc</span>
-            </div>
-            <p class="register">Bạn chưa có tài khoản ? <a class="reg" href="reg.html">Đăng ký ngay</a></p>
-        </form>
 
-        <!-- <p id="message"></p> -->
-    </div>
-  
+            <!-- Thông tin người nhận -->
+            <form id="checkout-form">
+                <h3>Thông tin thanh toán</h3>
+                <input type="text" id="fullname" placeholder="Họ và tên" required>
+                <input type="tel" id="phone" placeholder="Số điện thoại" required>
+                <input type="email" id="email" placeholder="Email" required>
 
-  <script src="/js/login.js"></script>
+                <label for="payment-method">Phương thức thanh toán:</label>
+                <select id="payment-method" required>
+                    <option value="">-- Chọn phương thức --</option>
+                    <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                    <option value="bank">Chuyển khoản ngân hàng</option>
+                    <option value="momo">Ví Momo</option>
+                </select>
+
+                <button type="submit">Xác nhận thanh toán</button>
+            </form>
+        </div>
+    </main>
+    <script src="../js/checkout.js"></script>
 </body>
 </html>

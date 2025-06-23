@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Rất quan trọng để các đơn vị vh hoạt động chính xác trên các phần tử con */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang */
+}
+
+
+
+
+/* Header */
+/* Header-content */
+.header-content {
+    background-color: #081a28;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px 20px;
+}
+
+.content-contact {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-fb i,
+.contact-phone i {
+    margin-right: 15px;
+    color: #7ab278;
+}
+
+.content-icon {
+    display: flex;
+    gap: 30px;
+}
+
+.content-icon .content-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.content-title p {
+    color: #7ab278;
+    font-size: 1.2rem;
+}
+
+.content-ic {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+/* Header-Navigation */
+.header-nav { 
+   background-color: #f8f9fa;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding:20px 30px;
+}
+
+.header-nav .logo h2 {
+    color: #047857;
+    font-size: 2rem;
+}
+
+/* Navigation */
+.header-nav nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.header-nav nav ul li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+    padding: 10px;
+
+}
+
+.header-nav nav ul li a:hover,
+.header-nav nav ul li a.active {
+    color: #047857;
+    border-bottom: 2px solid #047857;
+}
+
+/* Icon */
+
+.header-nav .icon {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+}
+.greentingSection {
+    display: none;
+}
+
+.icon a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+}
+
+.header-nav .icon .icon-search:hover,
+.header-nav .icon .icon-shopping:hover {
+    color: #047857;
+}
+
+
+#clear-history-btn {
+  background-color: #c0392b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin: 15px 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#clear-history-btn:hover {
+  background-color: #e74c3c;
+}
+
+#history-container {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td div {
+  margin-bottom: 4px;
+}
+

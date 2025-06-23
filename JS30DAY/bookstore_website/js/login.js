@@ -20,10 +20,47 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     localStorage.setItem("loggedInUser", username);
     
     // trở lại mà hình khi đăng nhâp thaanhf công
-    setTimeout(() => window.location.href = "http://127.0.0.1:5501/html/index.html", 1000); 
+    setTimeout(() => window.location.href = "/html/index.html", 1000); 
   } else {
     messageEl.textContent = "Sai tên đăng nhập hoặc mật khẩu!";
     messageEl.style.color = "red"
   }
 });
+
+
+// xử lý đăng nhập trang admin
+// Đăng nhập admin riêng biệt
+
+// Gán tài khoản admin cố định (không dùng chung localStorage với người dùng)
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const inputUsername = document.getElementById("loginUsername").value.trim();
+  const inputPassword = document.getElementById("loginPassword").value;
+  const message = document.getElementById("message");
+
+  // 🔐 Admin đăng nhập tách biệt
+  if (inputUsername === "admin" && inputPassword === "123456") {
+    localStorage.setItem("adminLoggedIn", "true");
+    localStorage.removeItem("userLoggedIn"); // Xóa nếu trước đó có user đăng nhập
+    message.textContent = "Đăng nhập admin thành công!";
+    message.style.color = "green";
+    setTimeout(() => window.location.href = "/html/admin.html", 1000);
+    return;
+  }
+
+  // 👤 Người dùng thường
+  const users = JSON.parse(localStorage.getItem("users")) || {};
+  if (users[inputUsername] && users[inputUsername].password === inputPassword) {
+    localStorage.setItem("userLoggedIn", inputUsername);
+    localStorage.removeItem("adminLoggedIn"); // Xóa nếu trước đó có admin
+    message.textContent = `Đăng nhập thành công! Xin chào ${users[inputUsername].fullName}`;
+    message.style.color = "green";
+    setTimeout(() => window.location.href = "/html/index.html", 1000);
+  } else {
+    message.textContent = "Sai tên đăng nhập hoặc mật khẩu!";
+    message.style.color = "red";
+  }
+});
+
 

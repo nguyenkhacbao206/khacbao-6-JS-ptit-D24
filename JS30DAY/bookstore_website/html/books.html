@@ -56,12 +56,12 @@
                         Xin chào: <span id="userFullName"></span> |
                         <a href="#" id="logoutbtn">Đăng xuất</a>
                     </div>
-                    <div class="icon-search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
                     <div class="icon-shopping">
                         <a href="/html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
 
+                    </div>
+                    <div class="icon-search">
+                        <a href="/html/history.html"><i class="fa-solid fa-file-invoice"></i></a>
                     </div>
                 </div>
                 </div>
@@ -93,7 +93,7 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-            <div class="books-list-1">
+            <!-- <div class="books-list-1">
                 <div class="list-cover">
                     <div class="cover-img">
                         <img src="/assets/books-images/01.png" alt="anh01">
@@ -111,7 +111,7 @@
                     </div>
                     <p class="text-content">Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem. Aliquam urna massa,</p>
                     <div class="text-btn">
-                        <a href="#">Add To Cart</a>
+                        <button class="book-btn">Add To Cart</button>
                         <ul>
                             <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa-solid fa-up-down-left-right"></i></a></li>
@@ -138,7 +138,7 @@
                     </div>
                     <p class="text-content">Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem. Aliquam urna massa,</p>
                     <div class="text-btn">
-                        <a href="#">Add To Cart</a>
+                        <button class="book-btn">Add To Cart</button>
                         <ul>
                             <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa-solid fa-up-down-left-right"></i></a></li>
@@ -165,7 +165,7 @@
                     </div>
                     <p class="text-content">Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem. Aliquam urna massa,</p>
                     <div class="text-btn">
-                        <a href="#">Add To Cart</a>
+                        <button class="book-btn">Add To Cart</button>
                         <ul>
                             <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa-solid fa-up-down-left-right"></i></a></li>
@@ -192,7 +192,7 @@
                     </div>
                     <p class="text-content">Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem. Aliquam urna massa,</p>
                     <div class="text-btn">
-                        <a href="#">Add To Cart</a>
+                        <button class="book-btn">Add To Cart</button>
                         <ul>
                             <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa-solid fa-up-down-left-right"></i></a></li>
@@ -200,17 +200,12 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <!-- Hiển thị sản phẩm được thêm từ admin -->
+            <div id="books-dynamic"></div>
         </div>
         <div class="pagination-list">
-            <p>Previous</p>
-            <ul>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">5</a></li>
-                <li class="pagination-text"><a href="#">Next</a></li>
-            </ul>
+            <ul></ul>
         </div>
     </main>
     <footer>
