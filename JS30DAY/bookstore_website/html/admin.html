@@ -77,6 +77,14 @@
       <input type="text" id="product-price" placeholder="Giá (VD: 49900)" required>
       <input type="file" id="product-image" accept="image/*" required>
       <input type="text" id="product-author" placeholder="Tên tác giả" required>
+      <select id="product-type" required>
+        <option value="">-- Chọn thể loại --</option>
+        <option value="Trinh thám">Trinh thám</option>
+        <option value="Học tập">Học tập</option>
+        <option value="Kỹ năng">Kỹ năng</option>
+        <option value="Kinh dị">Kinh dị</option>
+        <option value="Tình cảm">Tình cảm</option>
+    </select>
       <textarea id="product-description" placeholder="Mô tả sản phẩm" rows="4" required></textarea>
       <input type="number" id="product-rating" placeholder="Số sao (1 - 5)" min="1" max="5" step="0.5" required>
       <button type="submit">Thêm sản phẩm</button>

@@ -7,6 +7,9 @@
         window.location.href = "/html/login.html";
       }
     });
+
+// Lấy thêm trường thể loại khi thêm sản phẩm mới
+// (bổ sung vào cả hai listener submit bên dưới)
 document.getElementById("add-product-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -16,9 +19,10 @@ document.getElementById("add-product-form").addEventListener("submit", function 
     const author = document.getElementById("product-author").value.trim();
     const description = document.getElementById("product-description").value.trim();
     const rating = parseFloat(document.getElementById("product-rating").value.trim());
+    const type = document.getElementById("product-type").value.trim();
     const message = document.getElementById("admin-message");
 
-    if (!name || isNaN(price) || !imageInput.files[0] || !author || !description || isNaN(rating)) {
+    if (!name || isNaN(price) || !imageInput.files[0] || !author || !description || isNaN(rating) || !type) {
         message.textContent = "❌ Vui lòng nhập đầy đủ và hợp lệ tất cả các trường.";
         message.style.color = "red";
         return;
@@ -30,7 +34,7 @@ document.getElementById("add-product-form").addEventListener("submit", function 
         const base64Image = reader.result;
 
         const products = JSON.parse(localStorage.getItem("products")) || [];
-        products.push({ name, price, image: base64Image, author, description, rating });
+        products.push({ name, price, image: base64Image, author, description, rating, type });
         localStorage.setItem("products", JSON.stringify(products));
 
         message.textContent = "✅ Thêm sản phẩm thành công!";
@@ -63,7 +67,7 @@ function renderAdminBooks() {
     const div = document.createElement("div");
     div.className = "admin-book-item";
     div.innerHTML = `
-      <strong>${product.name}</strong> - ${product.author} - ${product.price.toLocaleString()} đ
+      <strong>${product.name}</strong> - ${product.author} - ${product.price.toLocaleString()} đ - ${product.type || "Không rõ thể loại"}
       <button class="edit-admin-book" data-index="${index}">Sửa</button>
       <button class="delete-admin-book" data-index="${index}">Xóa</button>
     `;
@@ -77,6 +81,7 @@ function renderAdminBooks() {
       const confirmDelete = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
       if (!confirmDelete) return;
 
+      const products = JSON.parse(localStorage.getItem("products")) || [];
       products.splice(idx, 1);
       localStorage.setItem("products", JSON.stringify(products));
       renderAdminBooks();
@@ -87,18 +92,17 @@ function renderAdminBooks() {
   container.querySelectorAll(".edit-admin-book").forEach(btn => {
     btn.addEventListener("click", function () {
       const idx = +this.getAttribute("data-index");
+      const products = JSON.parse(localStorage.getItem("products")) || [];
       const product = products[idx];
 
-      // Đổ dữ liệu cũ lên form
       document.getElementById("product-name").value = product.name;
       document.getElementById("product-price").value = product.price;
       document.getElementById("product-author").value = product.author;
       document.getElementById("product-description").value = product.description;
       document.getElementById("product-rating").value = product.rating;
+      document.getElementById("product-type").value = product.type || "";
 
-      // Không thể sửa ảnh trực tiếp (vì input type="file" không cho set value)
       alert("Lưu ý: Nếu bạn muốn đổi ảnh, hãy chọn ảnh mới trong ô 'Chọn ảnh'");
-
       editingIndex = idx;
       document.querySelector("#add-product-form button").textContent = "Cập nhật sản phẩm";
       showSection("add");
@@ -115,8 +119,9 @@ document.getElementById("add-product-form").addEventListener("submit", function 
   const author = document.getElementById("product-author").value.trim();
   const description = document.getElementById("product-description").value.trim();
   const rating = parseFloat(document.getElementById("product-rating").value);
+  const type = document.getElementById("product-type").value;
 
-  if (!name || isNaN(price) || !author || !description || isNaN(rating)) {
+  if (!name || isNaN(price) || !author || !description || isNaN(rating) || !type) {
     alert("Vui lòng điền đầy đủ thông tin hợp lệ.");
     return;
   }
@@ -129,13 +134,13 @@ document.getElementById("add-product-form").addEventListener("submit", function 
 
     if (editingIndex !== null) {
       // Cập nhật sản phẩm
-      products[editingIndex] = { name, price, image: imageData, author, description, rating };
+      products[editingIndex] = { name, price, image: imageData, author, description, rating, type };
       editingIndex = null;
       document.querySelector("#add-product-form button").textContent = "Thêm sản phẩm";
       alert("Đã cập nhật sản phẩm.");
     } else {
       // Thêm mới
-      products.push({ name, price, image: imageData, author, description, rating });
+      products.push({ name, price, image: imageData, author, description, rating, type });
       alert("Đã thêm sản phẩm mới.");
     }
 
@@ -160,7 +165,6 @@ document.getElementById("add-product-form").addEventListener("submit", function 
 });
 
 document.addEventListener("DOMContentLoaded", renderAdminBooks);
-
 
 // xử lý đăng xuất trang admin
 document.addEventListener("DOMContentLoaded", function () {

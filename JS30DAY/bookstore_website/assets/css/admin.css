@@ -351,3 +351,11 @@ form button:hover {
 #admin-books-list {
   margin-top: 20px;
 }
+
+select#product-type {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
