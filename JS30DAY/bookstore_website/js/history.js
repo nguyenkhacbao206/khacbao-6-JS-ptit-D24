@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div><strong>SĐT:</strong> ${order.customer?.phone || ""}</div>
           <div><strong>Email:</strong> ${order.customer?.email || ""}</div>
           <div><strong>Thanh toán:</strong> ${order.customer?.method || ""}</div>
+          <button class="print-btn" onclick="printOrder(this)">🖨️ In hóa đơn</button>
         </td>
       </tr>
     `;
@@ -60,4 +61,41 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  
 });
+
+function printOrder(button) {
+  const td = button.closest("td");
+  if (!td) return;
+
+  
+  const cloned = td.cloneNode(true);
+
+  // ✅ XÓA NÚT IN TRONG BẢN SAO
+  const printBtn = cloned.querySelector(".print-btn");
+  if (printBtn) printBtn.remove();
+
+  // ✅ In bản sao đã xóa nút
+  const printWindow = window.open("", "_blank");
+  printWindow.document.write(`
+    <html>
+    <head>
+      <title>Hóa đơn</title>
+      <style>
+        body { font-family: Arial; padding: 20px; }
+        h2 { text-align: center; }
+        div { margin-bottom: 6px; }
+        hr { margin: 10px 0; }
+      </style>
+    </head>
+    <body>
+      <h2>🧾 HÓA ĐƠN MUA HÀNG</h2>
+      ${cloned.innerHTML}
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+}
+

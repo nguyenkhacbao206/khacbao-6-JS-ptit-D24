@@ -72,14 +72,15 @@
             
                 <div class="banner">
                     <div class="banner-text">
-                        <h1>Shop List</h1>
+                        <h1>Blog List</h1>
                         <div class="banner-title">
                             <a href="/html/index.html">Home</a>
                             <i class="fa-solid fa-chevron-right"></i>
-                            <span>Shop List</span>
+                            <span>Blog List</span>
                         </div>
                     </div>
                 </div>
+            
         </div>
         <div class="main-container">
             <div class="book-filter-bar">
@@ -90,13 +91,28 @@
 
                 <select id="genre-select">
                     <option value="">-- Tất cả thể loại --</option>
-                    <option value="Trinh thám">Trinh thám</option>
-                    <option value="Học tập">Học tập</option>
-                    <option value="Kỹ năng">Kỹ năng</option>
-                    <option value="Kinh dị">Kinh dị</option>
-                    <option value="Tình cảm">Tình cảm</option>
                 </select>
+
+                <!-- ✅ Bộ lọc theo giá và sao -->
+                <div id="filter-section">
+                    <label>Giá từ: <input type="number" id="price-min" placeholder="0"></label>
+                    <label>đến: <input type="number" id="price-max" placeholder="999999"></label>
+
+                    <label>Sao tối thiểu:
+                    <select id="rating-filter">
+                        <option value="0">-- Tất cả --</option>
+                        <option value="1">Từ 1 sao</option>
+                        <option value="2">Từ 2 sao</option>
+                        <option value="3">Từ 3 sao</option>
+                        <option value="4">Từ 4 sao</option>
+                        <option value="5">Chỉ 5 sao</option>
+                    </select>
+                    </label>
+
+                    <button id="apply-filter">Lọc</button>
+                </div>
             </div>
+
             <!-- <div class="books-list-1">
                 <div class="list-cover">
                     <div class="cover-img">
@@ -209,10 +225,10 @@
             <div id="books-dynamic"></div>
 
         </div>
-        <section class="suggested-books">
+        <!-- <section class="suggested-books">
             <h2>📚 Gợi ý cho bạn</h2>
             <div id="suggestion-container" class="suggestion-grid"></div>
-        </section>
+        </section> -->
         <div class="pagination-list">
             <ul></ul>
         </div>

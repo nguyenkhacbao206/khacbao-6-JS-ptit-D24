@@ -155,3 +155,15 @@ td div {
   margin-bottom: 4px;
 }
 
+.print-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.print-btn:hover {
+  background-color: #27ae60;
+}

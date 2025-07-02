@@ -250,6 +250,28 @@ main {
   outline: none;
 }
 
+
+.qr-box {
+  margin-top: 16px;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.qr-box p {
+  font-size: 1.2rem;
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+.qr-box img {
+  margin-top: 8px;
+  width: 300px;
+  height: auto;
+}
+
+
 #checkout-form button {
   padding: 14px;
   font-size: 17px;

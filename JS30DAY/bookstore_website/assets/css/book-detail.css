@@ -1,0 +1,236 @@
+/* ====== BỐ CỤC CHUNG ====== */
+:root {
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --color-primary: #e53935;
+  --color-star: #f7b500;
+  --font-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* vùng bao toàn trang sách  */
+.detail-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: var(--font-sans);
+}
+
+/* ====== KHUNG CHI TIẾT SÁCH ====== */
+.book-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+  align-items: flex-start;          /* giữ ảnh chiều cao cố định */
+}
+
+/* Ảnh bìa */
+.book-detail-img {
+  flex: 0 0 340px;                 /* cố định chiều rộng */
+  height: 480px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Thông tin sách */
+.book-detail-info {
+  flex: 1 1 300px;                 /* phần chữ co giãn */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Tiêu đề */
+.book-detail-info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  line-height: 1.3;
+  color: #222;
+}
+
+/* meta (tác giả, giá, thể loại) */
+.meta-line {
+  font-size: 17px;
+  color: #555;
+  margin: 2px 0;
+}
+.meta-line strong {
+  font-weight: 600;
+  color: #000;
+}
+
+.price {
+  color: var(--color-primary);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Đánh giá sao */
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  font-size: 20px;
+}
+.book-detail-info i.fa-star,
+.book-detail-info i.fa-star-half-stroke,
+.book-detail-info i.fa-regular.fa-star {
+  color: var(--color-star);          /* vàng tươi */
+}
+/* Mô tả */
+.book-description {
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333;
+  max-height: 300px;           /* hạn chế độ dài default */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Nút “Xem thêm” (tùy JS của bạn render) */
+.read-more {
+  align-self: flex-start;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.read-more:hover { background: #c62828; transform: translateY(-2px); }
+
+/* ====== NÚT QUAY LẠI ====== */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f7f7;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 28px;
+}
+.back-btn:hover { background: #e0e0e0; transform: translateX(-2px); }
+
+/* ====== PHẦN REVIEW (giữ nguyên nhưng nâng cấp nhẹ) ====== */
+.review-section {
+  max-width: 1200px;
+  margin: 60px auto 80px;
+  padding: 40px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.review-section h3 {
+  font-size: 26px;
+  color: #222;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* input & textarea */
+.review-section select,
+.review-section textarea {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccd;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+}
+.review-section textarea { resize: vertical; min-height: 90px; }
+
+/* nút gửi review */
+.review-section #submit-review {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 13px 28px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.review-section #submit-review:hover {
+  background: #0d47a1;
+  transform: translateY(-2px);
+}
+
+/* review hiển thị */
+.review-item {
+  border-top: 1px solid #eee;
+  padding: 18px 0;
+  font-size: 15px;
+}
+.review-user { font-weight: 600; margin-bottom: 4px; }
+.review-stars { color: var(--color-star); margin-bottom: 6px; }
+.review-text { font-style: italic; color: #444; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .book-detail {
+    padding: 28px 24px;
+    gap: 24px;
+  }
+  .book-detail-img { flex: 1 1 100%; height: 420px; }
+  .book-detail-info h2 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .book-detail-img { height: 360px; }
+  .book-detail-info h2 { font-size: 24px; }
+  .price { font-size: 20px; }
+}
+
+/* ===== NÚT THÊM GIỎ HÀNG ===== */
+.add-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;             /* ✅ căn giữa nội dung */
+  gap: 8px;
+  width: 100%;                         /* ✅ nếu muốn nút chiếm full chiều ngang */
+  padding: 14px 32px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.4);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  text-align: center;                  /* đề phòng bị lệch chữ */
+}
+
+.add-cart-btn i {
+  font-size: 18px;
+}
+   /* icon cart */
+
+.add-cart-btn:hover {
+  background: #d32f2f;                  /* sẫm hơn khi hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(229, 57, 53, 0.5);
+}
+
+.add-cart-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) inset;
+}
+

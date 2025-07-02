@@ -43,6 +43,21 @@ document.addEventListener("DOMContentLoaded", function () {
   html += `<p><strong>Tổng cộng: ${total.toLocaleString()} đ</strong></p>`;
   summary.innerHTML = html;
 
+  document.getElementById("payment-method").addEventListener("change", function () {
+    const value = this.value;
+
+    // Ẩn cả hai trước
+    document.getElementById("qr-bank").style.display = "none";
+    document.getElementById("qr-momo").style.display = "none";
+
+    // Hiện đúng cái được chọn
+    if (value === "bank") {
+      document.getElementById("qr-bank").style.display = "block";
+    } else if (value === "momo") {
+      document.getElementById("qr-momo").style.display = "block";
+    }
+  });
+
   // Gửi đơn hàng khi xác nhận
   form.addEventListener("submit", function (e) {
     e.preventDefault();

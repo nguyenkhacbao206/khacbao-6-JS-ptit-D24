@@ -64,40 +64,40 @@
         </div>
     </header>
     <main>
-  <div class="admin-tabs">
-    <button onclick="showSection('add')">➕ Thêm sản phẩm</button>
-    <button onclick="showSection('manage')">📚 Quản lý sản phẩm</button>
-  </div>
+        <div class="admin-tabs">
+            <button onclick="showSection('add')">➕ Thêm sản phẩm</button>
+            <button onclick="showSection('manage')">📚 Quản lý sản phẩm</button>
+        </div>
 
-  <!-- Thêm sản phẩm -->
-  <div id="add-section">
-    <h2>Thêm sản phẩm mới</h2>
-    <form id="add-product-form">
-      <input type="text" id="product-name" placeholder="Tên sản phẩm" required>
-      <input type="text" id="product-price" placeholder="Giá (VD: 49900)" required>
-      <input type="file" id="product-image" accept="image/*" required>
-      <input type="text" id="product-author" placeholder="Tên tác giả" required>
-      <select id="product-type" required>
-        <option value="">-- Chọn thể loại --</option>
-        <option value="Trinh thám">Trinh thám</option>
-        <option value="Học tập">Học tập</option>
-        <option value="Kỹ năng">Kỹ năng</option>
-        <option value="Kinh dị">Kinh dị</option>
-        <option value="Tình cảm">Tình cảm</option>
-    </select>
-      <textarea id="product-description" placeholder="Mô tả sản phẩm" rows="4" required></textarea>
-      <input type="number" id="product-rating" placeholder="Số sao (1 - 5)" min="1" max="5" step="0.5" required>
-      <button type="submit">Thêm sản phẩm</button>
-    </form>
-    <p id="admin-message"></p>
-  </div>
+        <!-- Thêm sản phẩm -->
+        <div id="add-section">
+            <h2>Thêm sản phẩm mới</h2>
+            <form id="add-product-form">
+            <input type="text" id="product-name" placeholder="Tên sản phẩm" required>
+            <input type="text" id="product-price" placeholder="Giá (VD: 49900)" required>
+            <input type="file" id="product-image" accept="image/*" required>
+            <input type="text" id="product-author" placeholder="Tên tác giả" required>
+            <input type="text" id="product-type" placeholder="Nhập thể loại" required>
+            <textarea id="product-description" placeholder="Mô tả sản phẩm" rows="4" required></textarea>
+            <input type="number" id="product-rating" placeholder="Số sao (1 - 5)" min="1" max="5" step="0.5" required>
+            <button type="submit">Thêm sản phẩm</button>
+            </form>
+            <p id="admin-message"></p>
+        </div>
 
-  <!-- Quản lý sản phẩm -->
-  <div id="manage-section" style="display: none;">
-    <h2>Danh sách sản phẩm đã thêm</h2>
-    <div id="admin-books-list"></div>
-  </div>
-</main>
+        <!-- Quản lý sản phẩm -->
+        <div id="manage-section" style="display: none;">
+            <h2>Danh sách sản phẩm đã thêm</h2>
+            <div id="admin-books-list"></div>
+        </div>
+
+        <!-- ✅ Quản lý đánh giá -->
+        <div id="review-section" style="display: none;">
+            <h2>Đánh giá của người dùng</h2>
+            <div id="admin-review-list">Chọn sản phẩm để xem đánh giá.</div>
+        </div>
+    </main>
+
 
     <script src="../js/admin.js"></script>
 </body>

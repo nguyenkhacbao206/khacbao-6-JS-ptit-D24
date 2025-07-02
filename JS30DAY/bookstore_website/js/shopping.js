@@ -1,5 +1,3 @@
-
-
 // Hàm Thêm Sản Phẩm Vào Giỏ Hàng 
 function addToCart(productName, productPrice, imageUrl) {
     const username = localStorage.getItem("loggedInUser");
@@ -21,8 +19,6 @@ function addToCart(productName, productPrice, imageUrl) {
         return;
     }
 
-    // let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
     const existingProductIndex = cart.findIndex(item => item.name === productName);
 
     if (existingProductIndex !== -1) {
@@ -31,14 +27,10 @@ function addToCart(productName, productPrice, imageUrl) {
         cart.push({ name: productName, price: price, quantity: 1, imageUrl: imageUrl });
     }
 
-    // localStorage.setItem("cart", JSON.stringify(cart));
     localStorage.setItem(cartKey, JSON.stringify(cart));
     alert(`Đã thêm "${productName}" vào giỏ hàng!`);
     updateCartCount(); 
 }
-
-
-
 
 
 // --- 3. Hàm Hiển Thị Giỏ Hàng Lên Màn Hình
@@ -116,7 +108,7 @@ function displayCartItems() {
   `;
 
   container.innerHTML = html;
-  attachCartEventListeners(); // nếu bạn có xử lý sự kiện tăng/giảm/xóa
+  attachCartEventListeners(); 
 }
 
 
@@ -140,7 +132,7 @@ function increaseQuantity(index) {
     updateCartCount();
 }
 
-// hàm xưer lý nút giảm
+// hàm xử lý nút giảm
 function decreaseQuantity(index) {
     const username = localStorage.getItem("loggedInUser");
     if (!username) {
@@ -169,7 +161,6 @@ function decreaseQuantity(index) {
     updateCartCount();
 }
 
-
 // hàm xử lý nút xóa
 function removeItem(index) {
   const username = localStorage.getItem("loggedInUser");
@@ -185,9 +176,6 @@ function removeItem(index) {
   updateCartCount();
 }
 
-
-
-
 // 5. Hàm Cập Nhật Số Lượng Sản Phẩm Trên Icon Giỏ Hàng ở Header
 function updateCartCount() {
     const username = localStorage.getItem("loggedInUser");
@@ -197,10 +185,8 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     const cartCountSpan = document.createElement("span"); 
 
-   
     const iconShopping = document.querySelector(".icon-shopping");
 
-    // Kiểm tra nếu chưa có phần tử cart-count thì tạo và thêm vào icon-shopping
     if (!document.getElementById("cart-count") && iconShopping) {
         cartCountSpan.id = "cart-count";
         cartCountSpan.style.cssText = `
@@ -229,61 +215,15 @@ function updateCartCount() {
 }
 
 // xử lý thanh toán
-// document.addEventListener("DOMContentLoaded", function () {
-//     const checkoutBtn = document.getElementById("checkout-btn");
-
-//     if (checkoutBtn) {
-//         checkoutBtn.addEventListener("click", function () {
-//             const username = localStorage.getItem("loggedInUser");
-//             if (!username) {
-//                 alert("Bạn cần đăng nhập để thanh toán.");
-//                 window.location.href = "/html/login.html";
-//                 return;
-//             }
-
-//             const cartKey = `cart_${username}`;
-//             const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-
-//             if (cart.length === 0) {
-//                 alert("Giỏ hàng trống, không thể thanh toán.");
-//                 return;
-//             }
-
-//             // Tính tổng tiền
-//             const totalAmount = cart.reduce((sum, item) => {
-//                 return sum + item.price * (item.quantity || 1);
-//             }, 0);
-
-//             const confirmPay = confirm(`Xác nhận thanh toán ${totalAmount.toLocaleString('vi-VN')} VNĐ?`);
-//             if (!confirmPay) return;
-
-//             // Lưu lịch sử đơn hàng
-//             const historyKey = `order_history_${username}`;
-//             const history = JSON.parse(localStorage.getItem(historyKey)) || [];
-//             history.push({
-//                 items: cart,
-//                 total: totalAmount,
-//                 date: new Date().toLocaleString(),
-//             });
-//             localStorage.setItem(historyKey, JSON.stringify(history));
-
-//             // Xoá giỏ hàng sau thanh toán
-//             localStorage.removeItem(cartKey);
-//             alert("Thanh toán thành công! Cảm ơn bạn đã mua hàng.");
-            
-//             displayCartItems();
-//             updateCartCount();
-//         });
-//     }
-  
-// });
+// Chuyển hướng sang trang checkout nếu có giỏ hàng
+// Không xử lý trực tiếp tại đây nữa
 
 document.addEventListener("DOMContentLoaded", function () {
   const checkoutBtn = document.getElementById("checkout-btn");
 
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", function () {
-      const username = localStorage.getItem("userLoggedIn");
+      const username = localStorage.getItem("loggedInUser");
       if (!username) {
         alert("Bạn cần đăng nhập để thanh toán.");
         window.location.href = "/html/login.html";
@@ -306,11 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --- 6. Chạy khi DOM đã sẵn sàng ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Chỉ hiển thị giỏ hàng nếu đây là trang shopping.html
-    // Bạn có thể kiểm tra URL hoặc một ID/class đặc trưng của trang
     if (document.title === "Giỏ Hàng Của Bạn" || window.location.pathname.includes('/html/shopping.html')) {
         displayCartItems();
     }
-    
 });
-    

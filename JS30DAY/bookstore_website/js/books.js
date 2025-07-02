@@ -12,11 +12,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Hiển thị sách và xử lý tìm kiếm + lọc thể loại + gợi ý khi gõ
 document.addEventListener("DOMContentLoaded", function () {
+  const genreSelect = document.getElementById("genre-select");
+  const genres = JSON.parse(localStorage.getItem("genres")) || [];
+
+    // Xóa các option cũ (trừ option đầu tiên)
+  while (genreSelect.options.length > 1) {
+        genreSelect.remove(1);
+  }
+
+    // Thêm các thể loại từ localStorage
+  genres.forEach(genre => {
+        const option = document.createElement("option");
+        option.value = genre;
+        option.textContent = genre;
+        genreSelect.appendChild(option);
+  });
+
+
   const products = JSON.parse(localStorage.getItem("products")) || [];
   const container = document.getElementById("books-dynamic");
   const pagination = document.querySelector(".pagination-list ul");
   const searchInput = document.getElementById("search-input");
-  const genreSelect = document.getElementById("genre-select");
+  // const genreSelect = document.getElementById("genre-select");
   const suggestionBox = document.getElementById("search-suggestions");
   const itemsPerPage = 5;
 
@@ -51,13 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <p class="text-author">Tác giả: ${product.author}</p>
           <span class="text-price">${product.price.toLocaleString('vi-VN')} đ</span>
           <div class="text-star">${starHtml}</div>
-          <p class="text-content">${product.description}</p>
+          <p class="text-type">Thể loại: ${product.type || "Không rõ"}</p>
+          
           <div class="text-btn">
             <button class="book-btn">Add To Cart</button>
             <ul>
               <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
               <li><a href="#"><i class="fa-solid fa-up-down-left-right"></i></a></li>
-              <li><a href="#"><i class="fa-regular fa-eye"></i></a></li>
+              <li><a href="../html/book-detail.html?id=${index}"><i class="fa-regular fa-eye"></i></a></li>
             </ul>
           </div>
         </div>
@@ -85,20 +103,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyFilters() {
-    const keyword = searchInput.value.toLowerCase();
-    const genre = genreSelect.value;
+  const keyword = searchInput.value.toLowerCase();
+  const genre = genreSelect.value;
+  const minPrice = parseFloat(document.getElementById("price-min")?.value) || 0;
+  const maxPrice = parseFloat(document.getElementById("price-max")?.value) || Infinity;
+  const minRating = parseFloat(document.getElementById("rating-filter")?.value) || 0;
 
-    filteredProducts = products.filter(product => {
-      const matchesKeyword = product.name.toLowerCase().includes(keyword) ||
-                             (product.author && product.author.toLowerCase().includes(keyword));
-      const matchesGenre = genre ? product.type === genre : true;
-      return matchesKeyword && matchesGenre;
-    });
+  filteredProducts = products.filter(product => {
+    const matchesKeyword = product.name.toLowerCase().includes(keyword) ||
+                           (product.author && product.author.toLowerCase().includes(keyword));
 
-    currentPage = 1;
-    renderProducts(filteredProducts, currentPage);
-    renderPagination(filteredProducts);
-  }
+    const matchesGenre = genre ? product.type === genre : true;
+    const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+    const matchesRating = product.rating >= minRating;
+
+    return matchesKeyword && matchesGenre && matchesPrice && matchesRating;
+  });
+
+  currentPage = 1;
+  renderProducts(filteredProducts, currentPage);
+  renderPagination(filteredProducts);
+
+}
+
 
   searchInput.addEventListener("input", () => {
     genreSelect.value = "";
@@ -146,4 +173,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   renderProducts(filteredProducts, currentPage);
   renderPagination(filteredProducts);
+
+   // ✅ Gắn sự kiện lọc theo giá và sao
+  const filterBtn = document.getElementById("apply-filter");
+  if (filterBtn) {
+    filterBtn.addEventListener("click", applyFilters);
+  }
 });
+
+
+// xử lý thêm vào giỏ hàng
+document.addEventListener("DOMContentLoaded", function () {
+  // Bắt tất cả nút Add To Cart (sau khi DOM đã sinh ra)
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("book-btn") || e.target.closest(".book-btn")) {
+      const button = e.target.closest(".book-btn");
+
+      // Lấy người dùng
+      const username = localStorage.getItem("loggedInUser");
+      if (!username) {
+        alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!");
+        window.location.href = "/html/login.html";
+        return;
+      }
+
+      // Tìm phần tử cha chứa thông tin sách
+      const bookItem = button.closest(".books-list-1");
+      if (!bookItem) return;
+
+      const name = bookItem.querySelector(".text-title")?.textContent.trim();
+      const priceText = bookItem.querySelector(".text-price")?.textContent.trim();
+      const price = parseFloat(priceText.replace("đ", "").replace(/\./g, "").trim());
+
+      const imgEl = bookItem.querySelector(".cover-img img");
+      const imageUrl = imgEl?.getAttribute("src") || "";
+
+      // Giỏ hàng riêng cho từng user
+      const cartKey = `cart_${username}`;
+      const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+      const existingIndex = cart.findIndex(item => item.name === name);
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+      } else {
+        cart.push({ name, price, quantity: 1, imageUrl });
+      }
+
+      localStorage.setItem(cartKey, JSON.stringify(cart));
+      alert(`Đã thêm "${name}" vào giỏ hàng!`);
+      if (typeof updateCartCount === "function") updateCartCount();
+    }
+  });
+});
+
+
+
+

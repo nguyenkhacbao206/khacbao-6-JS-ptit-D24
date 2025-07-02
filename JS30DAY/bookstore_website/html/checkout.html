@@ -82,7 +82,7 @@
                 <input type="tel" id="phone" placeholder="Số điện thoại" required>
                 <input type="email" id="email" placeholder="Email" required>
 
-                <label for="payment-method">Phương thức thanh toán:</label>
+                <!-- <label for="payment-method">Phương thức thanh toán:</label> -->
                 <select id="payment-method" required>
                     <option value="">-- Chọn phương thức --</option>
                     <option value="cod">Thanh toán khi nhận hàng (COD)</option>
@@ -90,10 +90,23 @@
                     <option value="momo">Ví Momo</option>
                 </select>
 
+                <!-- QR Chuyển khoản -->
+                <div id="qr-bank" class="qr-box" style="display: none;">
+                    <p>Quét mã QR để chuyển khoản ngân hàng:</p>
+                    <img src="../assets/images/qrcodebank.jpg" alt="QR ngân hàng" width="200">
+                </div>
+
+                <!-- QR Momo -->
+                <div id="qr-momo" class="qr-box" style="display: none;">
+                    <p>Quét mã QR để thanh toán bằng ví Momo:</p>
+                    <img src="path/to/momo-qr.png" alt="QR Momo" width="200">
+                </div>
+
                 <button type="submit">Xác nhận thanh toán</button>
             </form>
         </div>
     </main>
     <script src="../js/checkout.js"></script>
+    <script src="../js/authlink.js"></script>
 </body>
 </html>
