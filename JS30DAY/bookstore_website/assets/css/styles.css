@@ -231,6 +231,12 @@ html, body {
     color: black;
 }
 
+.title-buttons a {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
 
 
 .content-titles .text-1 p {

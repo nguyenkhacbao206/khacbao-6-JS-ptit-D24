@@ -19,3 +19,4 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("book-rating").textContent = ""; // không cần đánh giá nếu là bài viết
   document.getElementById("book-description").textContent = item.content || "Không có nội dung.";
 });
+    
