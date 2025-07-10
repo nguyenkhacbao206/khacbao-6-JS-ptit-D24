@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu</title>
-    <link rel="stylesheet" href="/assets/css/about.css">
-    <link rel="stylesheet" href="/html/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../html/fontawesome/css/all.min.css">
 </head>
 <body>
      <header>
@@ -39,29 +39,28 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="/html/index.html">Trang chủ</a></li>
-                        <li><a href="/html/books.html">Sách</a></li>
-                        <li><a href="#">Thể loại</a></li>
-                        <li><a href="/html/about.html" class="active">Giới thiệu</a></li>
-                        <li><a href="/html/contact.html">Liên hệ</a></li>
+                        <li><a href="../html/index.html">Trang chủ</a></li>
+                        <li><a href="../html/books.html">Sách</a></li>
+                        <!-- <li><a href="#">Thể loại</a></li> -->
+                        <li><a href="../html/about.html">Giới thiệu</a></li>
+                        <li><a href="../html/contact.html">Liên hệ</a></li>
                     </ul>
-
                 </nav>
                 <div class="icon">
                     <div class="login" id="authLinks">
-                        <a href="reg.html">Đăng ký</a> |
-                        <a href="login.html">Đăng nhập</a>
+                        <a href="../html/reg.html">Đăng ký</a> |
+                        <a href="../html/login.html">Đăng nhập</a>
                     </div>
-                    <div id="greentingSection" class="greentingSection">
+                    <!-- <div id="greentingSection">
                         Xin chào: <span id="userFullName"></span> |
                         <a href="#" id="logoutbtn">Đăng xuất</a>
-                    </div>
+                    </div> -->
                     <div class="icon-shopping">
-                        <a href="/html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="../html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
 
                     </div>
                     <div class="icon-search">
-                        <a href="/html/history.html"><i class="fa-solid fa-file-invoice"></i></a>
+                        <a href="../html/history.html"><i class="fa-solid fa-file-invoice"></i></a>
                     </div>
                 </div>
                 </div>
@@ -87,7 +86,7 @@
                 <div class="content-1" id="content-1">
                     <div class="content-cover">
                         <div class="cover-image">
-                            <img src="/assets/about-images/post-1.jpg" width="100%" alt="anh1">
+                            <img src="../assets/about-images/post-1.jpg" width="100%" alt="anh1">
                         </div>
                     </div>
                     <div class="content-date">
@@ -105,13 +104,13 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur et ipsum ut volutpat. Morbi a mollis felis. Nam consectetur lectus vel lorem facilisis, quis viverra purus pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui lacus, tempor a metus vel, varius rhoncus nunc. Suspendisse luctus feugiat dictum. Curabitur ipsum velit, viverra in pretium eget, molestie maximus magna.</p>
                     </div>
                     <div class="content-button">
-                        <button>Read More →</button>
+                        <button class="read-more-btn" data-id="0">Read More →</button>
                     </div>
                 </div>
                 <div class="content-2" id="content-2">
                     <div class="cotent-cover">
                         <div class="cover-image">
-                            <img src="/assets/about-images/post-2.jpg" width="100%" alt="anh2">
+                            <img src="../assets/about-images/post-2.jpg" width="100%" alt="anh2">
                         </div>
                     </div>
                     <div class="content-date">
@@ -129,13 +128,13 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur et ipsum ut volutpat. Morbi a mollis felis. Nam consectetur lectus vel lorem facilisis, quis viverra purus pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui lacus, tempor a metus vel, varius rhoncus nunc. Suspendisse luctus feugiat dictum. Curabitur ipsum velit, viverra in pretium eget, molestie maximus magna.</p>
                     </div>
                     <div class="content-button">
-                        <button>Read More →</button>
+                        <button class="read-more-btn">Read More →</button>
                     </div>
                 </div>
                 <div class="content-3" id="content-3">
                     <div class="cotent-cover">
                         <div class="cover-image">
-                            <img src="/assets/about-images/post-3.jpg" width="100%" alt="anh3">
+                            <img src="../assets/about-images/post-3.jpg" width="100%" alt="anh3">
                         </div>
                     </div>
                     <div class="content-date">
@@ -153,7 +152,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur et ipsum ut volutpat. Morbi a mollis felis. Nam consectetur lectus vel lorem facilisis, quis viverra purus pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui lacus, tempor a metus vel, varius rhoncus nunc. Suspendisse luctus feugiat dictum. Curabitur ipsum velit, viverra in pretium eget, molestie maximus magna.</p>
                     </div>
                     <div class="content-button">
-                        <button>Read More →</button>
+                        <button class="read-more-btn">Read More →</button>
                     </div>
                 </div>
             </div>
@@ -162,6 +161,7 @@
                     <div class="sidebar-search">
                         <h3>Search</h3>
                         <input type="search" placeholder="Search here">
+                        <ul id="suggestList" class="suggest-list"></ul>
                     </div>
                     <div class="sidebar-categories">
                         <h3>Categories</h3>
@@ -198,7 +198,7 @@
                             <div class="post-1">
                                 <div class="post-image">
                                     <div class="post-cover">
-                                        <img src="/assets/about-images/pp3.jpg" width="110%" alt="anhpp3">
+                                        <img src="../assets/about-images/pp3.jpg" width="110%" alt="anhpp3">
                                     </div>
                                 </div>
                                 <div class="post-date-text">
@@ -220,7 +220,7 @@
                             <div class="post-2">
                                 <div class="post-image">
                                     <div class="post-cover">
-                                        <img src="/assets/about-images/pp4.jpg" width="110%" alt="anhpp3">
+                                        <img src="../assets/about-images/pp4.jpg" width="110%" alt="anhpp3">
                                     </div>
                                 </div>
                                 <div class="post-date-text">
@@ -241,7 +241,7 @@
                             <div class="post-3">
                                 <div class="post-image">
                                     <div class="post-cover">
-                                        <img src="/assets/about-images/pp5.jpg" width="110%" alt="anhpp3">
+                                        <img src="../assets/about-images/pp5.jpg" width="110%" alt="anhpp3">
                                     </div>
                                 </div>
                                 <div class="post-date-text">
@@ -282,14 +282,7 @@
             </div>
         </div>
         <div class="pagination-list">
-            <p>Previous</p>
-            <ul>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">5</a></li>
-                <li class="pagination-text"><a href="#">Next</a></li>
-            </ul>
+            <ul></ul>
         </div>
     </main>
     <footer>
@@ -343,7 +336,7 @@
         </div>
     </footer>
 
-    <script src="/js/about.js"></script>
+    <script src="../js/about.js"></script>
     <script src="../js/authlink.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 
 // xử lý đăng nhập trang admin
-// Đăng nhập admin riêng biệt
+
 
 // Gán tài khoản admin cố định (không dùng chung localStorage với người dùng)
 document.getElementById("loginForm").addEventListener("submit", function (e) {
@@ -39,7 +39,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const inputPassword = document.getElementById("loginPassword").value;
   const message = document.getElementById("message");
 
-  // 🔐 Admin đăng nhập tách biệt
   if (inputUsername === "admin" && inputPassword === "123456") {
     localStorage.setItem("adminLoggedIn", "true");
     localStorage.removeItem("userLoggedIn"); // Xóa nếu trước đó có user đăng nhập

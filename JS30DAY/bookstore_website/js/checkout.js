@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Gửi đơn hàng khi xác nhận
+  // thanh toán
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 

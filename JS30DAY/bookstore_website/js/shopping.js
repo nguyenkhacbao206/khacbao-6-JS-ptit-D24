@@ -108,7 +108,7 @@ function displayCartItems() {
   `;
 
   container.innerHTML = html;
-  attachCartEventListeners(); 
+  // attachCartEventListeners(); 
 }
 
 
@@ -176,7 +176,7 @@ function removeItem(index) {
   updateCartCount();
 }
 
-// 5. Hàm Cập Nhật Số Lượng Sản Phẩm Trên Icon Giỏ Hàng ở Header
+// 5. Hàm Cập Nhật Số Lượng Sản Phẩm 
 function updateCartCount() {
     const username = localStorage.getItem("loggedInUser");
     if (!username) return; 
@@ -215,8 +215,8 @@ function updateCartCount() {
 }
 
 // xử lý thanh toán
-// Chuyển hướng sang trang checkout nếu có giỏ hàng
-// Không xử lý trực tiếp tại đây nữa
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const checkoutBtn = document.getElementById("checkout-btn");
@@ -238,13 +238,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Chuyển sang trang xác nhận thanh toán
       window.location.href = "/html/checkout.html";
     });
   }
 });
 
-// --- 6. Chạy khi DOM đã sẵn sàng ---
+// --- 6. Lắng Nghe Sự Kiện DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
     if (document.title === "Giỏ Hàng Của Bạn" || window.location.pathname.includes('/html/shopping.html')) {
         displayCartItems();

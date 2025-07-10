@@ -38,26 +38,28 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="/html/index.html">Trang chủ</a></li>
-                        <li><a href="/html/books.html" >Sách</a></li>
-                        <li><a href="#">Thể loại</a></li>
-                        <li><a href="/html/about.html" >Giới thiệu</a></li>
-                        <li><a href="/html/contact.html" >Liên hệ</a></li>
+                        <li><a href="../html/index.html">Trang chủ</a></li>
+                        <li><a href="../html/books.html">Sách</a></li>
+                        <!-- <li><a href="#">Thể loại</a></li> -->
+                        <li><a href="../html/about.html">Giới thiệu</a></li>
+                        <li><a href="../html/contact.html">Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div class="icon">
-                    <div class="admin-info">
-                        <span>👋 Xin chào, <strong>admin</strong></span>
-                        |
-                        <a href="#" id="admin-logout">Đăng xuất</a>
+                    <div class="login" id="authLinks">
+                        <a href="../html/reg.html">Đăng ký</a> |
+                        <a href="../html/login.html">Đăng nhập</a>
                     </div>
-                    
+                    <!-- <div id="greentingSection">
+                        Xin chào: <span id="userFullName"></span> |
+                        <a href="#" id="logoutbtn">Đăng xuất</a>
+                    </div> -->
                     <div class="icon-shopping">
-                        <a href="/html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="../html/shopping.html"><i class="fa-solid fa-cart-shopping"></i></a>
 
                     </div>
                     <div class="icon-search">
-                        <a href="/html/history.html"><i class="fa-solid fa-file-invoice"></i></a>
+                        <a href="../html/history.html"><i class="fa-solid fa-file-invoice"></i></a>
                     </div>
                 </div>
                 </div>
@@ -67,6 +69,8 @@
         <div class="admin-tabs">
             <button onclick="showSection('add')">➕ Thêm sản phẩm</button>
             <button onclick="showSection('manage')">📚 Quản lý sản phẩm</button>
+            <button onclick="showSection('intro')">Thêm giới thiệu</button>
+            <button onclick="showSection('feedback'); renderFeedback()">quản lý phản hồi</button>
         </div>
 
         <!-- Thêm sản phẩm -->
@@ -91,10 +95,23 @@
             <div id="admin-books-list"></div>
         </div>
 
-        <!-- ✅ Quản lý đánh giá -->
+        <!--  Quản lý đánh giá -->
         <div id="review-section" style="display: none;">
             <h2>Đánh giá của người dùng</h2>
             <div id="admin-review-list">Chọn sản phẩm để xem đánh giá.</div>
+        </div>
+        <div id="intro-section" style="display: none;">
+            <h2>Thêm bài giới thiệu mới</h2>
+            <form id="intro-form">
+                <input type="text" id="intro-title" placeholder="Tiêu đề bài viết" required>
+                <textarea id="intro-content" placeholder="Nội dung bài viết" required></textarea>
+                <input type="file" id="intro-image" accept="image/*" required>
+                <button type="submit">Thêm bài</button>
+            </form>
+        </div>
+        <div id="feedback-section" style="display: none;">
+            <h2>Phản hồi từ khách hàng</h2>
+            <div id="feedback-list"></div>
         </div>
     </main>
 

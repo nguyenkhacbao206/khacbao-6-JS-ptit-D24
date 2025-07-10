@@ -13,6 +13,8 @@ function showSection(section) {
   document.getElementById("add-section").style.display = section === "add" ? "block" : "none";
   document.getElementById("manage-section").style.display = section === "manage" ? "block" : "none";
   document.getElementById("review-section").style.display = section === "review" ? "block" : "none";
+  document.getElementById("intro-section").style.display = section === "intro" ? "block" : "none";
+  document.getElementById("feedback-section").style.display = section === "feedback" ? "block" : "none";
 }
 
 // Xử lý thêm / cập nhật sản phẩm
@@ -35,7 +37,7 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-  const reader = new FileReader();
+  const reader = new FileReader(); 
   reader.onload = function () {
     const base64Image = reader.result;
     const products = JSON.parse(localStorage.getItem("products")) || [];
@@ -55,10 +57,14 @@ form.addEventListener("submit", function (e) {
     localStorage.setItem("products", JSON.stringify(products));
 
     const genres = JSON.parse(localStorage.getItem("genres")) || [];
-    if (!genres.includes(type)) {
-      genres.push(type);
-      localStorage.setItem("genres", JSON.stringify(genres));
-    }
+    // if (!genres.includes(type)) {
+    //   genres.push(type);
+    //   localStorage.setItem("genres", JSON.stringify(genres));
+    // }
+
+    const updatedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    const newGenres = [...new Set(updatedProducts.map(p => p.type.trim()).filter(Boolean))];
+    localStorage.setItem("genres", JSON.stringify(newGenres));
 
     form.reset();
     renderAdminBooks();
@@ -91,24 +97,35 @@ function renderAdminBooks() {
     const div = document.createElement("div");
     div.className = "admin-book-item";
     div.innerHTML = `
-      <strong>${product.name}</strong> - ${product.author} - ${product.price.toLocaleString()} đ - ${product.type || "Không rõ thể loại"}
+      <strong>${product.name}</strong> - ${product.author} - ${product.price.toLocaleString('vi-VN')} đ - ${product.type || "Không rõ thể loại"}
       <button class="edit-admin-book" data-index="${index}">Sửa</button>
       <button class="delete-admin-book" data-index="${index}">Xóa</button>
     `;
     container.appendChild(div);
   });
 
+  //  Gắn sự kiện XÓA và cập nhật genres
   container.querySelectorAll(".delete-admin-book").forEach(btn => {
     btn.addEventListener("click", function () {
       const idx = +this.getAttribute("data-index");
       if (!confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) return;
+
       const products = JSON.parse(localStorage.getItem("products")) || [];
       products.splice(idx, 1);
       localStorage.setItem("products", JSON.stringify(products));
+
+      // Cập nhật lại danh sách 
+      const updatedProducts = JSON.parse(localStorage.getItem("products")) || [];
+      const newGenres = [...new Set(updatedProducts.map(p => p.type?.trim()).filter(Boolean))];
+      localStorage.setItem("genres", JSON.stringify(newGenres));
+
+      // updateGenresFromProducts();
+
       renderAdminBooks();
     });
   });
 
+  //  Gắn sự kiện SỬA
   container.querySelectorAll(".edit-admin-book").forEach(btn => {
     btn.addEventListener("click", function () {
       const idx = +this.getAttribute("data-index");
@@ -122,13 +139,85 @@ function renderAdminBooks() {
       document.getElementById("product-rating").value = product.rating;
       document.getElementById("product-type").value = product.type || "";
 
+
+      
       editingIndex = idx;
-      form.querySelector("button").textContent = "Cập nhật sản phẩm";
+      document.querySelector("#add-product-form button").textContent = "Cập nhật sản phẩm";
       showSection("add");
     });
   });
 }
 
+// xử lý phần thêm phần giới thiệu 
+document.getElementById("intro-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const title = document.querySelector("#intro-title").value.trim();
+  const content = document.querySelector("#intro-content").value.trim();
+  const imgInput = document.querySelector("#intro-image");
+
+  if (!title || !content || !imgInput.files[0]) {
+    alert("Vui lòng nhập đầy đủ thông tin");
+    return;
+  }
+
+  const readerIntro = new FileReader(); 
+  readerIntro.onload = function () {
+    const imgbase64 = readerIntro.result;
+
+    const intros = JSON.parse(localStorage.getItem("introductions")) || [];
+    intros.push({
+      title,
+      content,
+      image: imgbase64,
+      createdAt: new Date().toLocaleDateString("vi-VN"),
+      createdBy: "admin"
+    });
+    localStorage.setItem("introductions", JSON.stringify(intros));
+    alert("Đã thêm bài giới thiệu");
+    document.getElementById("intro-form").reset();
+    showSection("intro");
+  };
+  readerIntro.readAsDataURL(imgInput.files[0]);
+});
+
+
+// xử lý phẩn quản lý phản hồi
+function renderFeedback() {
+  const feedbackList = document.getElementById('feedback-list');
+  const feedbacks = JSON.parse(localStorage.getItem("contactmessange")) || [];
+
+  if (feedbacks.length === 0) {
+    feedbackList.innerHTML = "<p>không có phản hồi </p>"
+    return;
+  }
+  
+  feedbackList.innerHTML = feedbacks.map((fb, index) => `
+    <div class="feedback-item" style="border:1px solid #ccc; padding:10px; margin-bottom:10px; border-radius:8px;">
+        <p>👤 ${fb.name}</p> - <p>📧 ${fb.email}</p>
+        <p>🕒 ${fb.time}</p>
+        <P>💬 ${fb.write}</P>
+        <button class="delete-feedback" data-index="${index}" style="margin-top: 5px;">❌ Xóa phản hồi</button>
+    </div>
+  `).join("");
+  document.querySelectorAll(".delete-feedback").forEach(btn => {
+  btn.addEventListener('click', function() {
+    const index = +this.getAttribute("data-index")
+    if (!confirm("bạn có chắc muốn xóa phả hồi này không")) return;
+
+    const feedbacks = JSON.parse(localStorage.getItem("contactmessange")) || [];
+    feedbacks.splice(index, 1);
+    localStorage.setItem("contactmessange", JSON.stringify(feedbacks));
+    alert('Đã xóa phản hồi');
+    renderFeedback();
+  });
+});
+
+};
+
+
+
+// 
 document.addEventListener("DOMContentLoaded", renderAdminBooks);
 
 document.addEventListener("DOMContentLoaded", function () {

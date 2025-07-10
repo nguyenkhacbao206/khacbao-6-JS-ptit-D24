@@ -72,11 +72,11 @@ function printOrder(button) {
   
   const cloned = td.cloneNode(true);
 
-  // ✅ XÓA NÚT IN TRONG BẢN SAO
+  //  XÓA NÚT IN TRONG BẢN SAO
   const printBtn = cloned.querySelector(".print-btn");
   if (printBtn) printBtn.remove();
 
-  // ✅ In bản sao đã xóa nút
+  // In bản sao đã xóa nút
   const printWindow = window.open("", "_blank");
   printWindow.document.write(`
     <html>

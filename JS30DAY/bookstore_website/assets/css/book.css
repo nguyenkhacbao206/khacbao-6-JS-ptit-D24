@@ -823,3 +823,7 @@ html, body {
   color: #777;
   margin: 4px 0;
 } */
+
+.liked {
+  color: red;
+}

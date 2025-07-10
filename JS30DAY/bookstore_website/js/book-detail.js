@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 
-  <!-- ✅ Di chuyển phần đánh giá RA NGOÀI book-detail -->
+  <!-- Di chuyển phần đánh giá RA NGOÀI book-detail -->
   <div class="review-section">
     <h3>Đánh giá sách</h3>
     <div class="star-input">

@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <ul>
               <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
               <li><a href="#"><i class="fa-solid fa-up-down-left-right"></i></a></li>
-              <li><a href="../html/book-detail.html?id=${index}"><i class="fa-regular fa-eye"></i></a></li>
+              <li><a href="../html/book-detail.html?id=${start + index}"><i class="fa-regular fa-eye"></i></a></li>
             </ul>
           </div>
         </div>
@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // làm ra các trang
   function renderPagination(list) {
     pagination.innerHTML = "";
     const totalPages = Math.ceil(list.length / itemsPerPage);
@@ -97,6 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage = i;
         renderProducts(filteredProducts, currentPage);
         renderPagination(filteredProducts);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       });
       pagination.appendChild(li);
     }
@@ -110,15 +115,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const minRating = parseFloat(document.getElementById("rating-filter")?.value) || 0;
 
   filteredProducts = products.filter(product => {
-    const matchesKeyword = product.name.toLowerCase().includes(keyword) ||
-                           (product.author && product.author.toLowerCase().includes(keyword));
+  const price = Number(product.price);
+  const rating = Number(product.rating);
 
-    const matchesGenre = genre ? product.type === genre : true;
-    const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
-    const matchesRating = product.rating >= minRating;
+  const matchesKeyword = product.name.toLowerCase().includes(keyword) ||
+                         (product.author && product.author.toLowerCase().includes(keyword));
 
-    return matchesKeyword && matchesGenre && matchesPrice && matchesRating;
-  });
+  const matchesGenre = genre ? product.type === genre : true;
+  const matchesPrice = !isNaN(price) && price >= minPrice && price <= maxPrice;
+  const matchesRating = !isNaN(rating) && (minRating === 0 || Math.floor(rating) === minRating);
+
+  return matchesKeyword && matchesGenre && matchesPrice && matchesRating;
+});
+
 
   currentPage = 1;
   renderProducts(filteredProducts, currentPage);
@@ -174,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderProducts(filteredProducts, currentPage);
   renderPagination(filteredProducts);
 
-   // ✅ Gắn sự kiện lọc theo giá và sao
+   // Gắn sự kiện lọc theo giá và sao
   const filterBtn = document.getElementById("apply-filter");
   if (filterBtn) {
     filterBtn.addEventListener("click", applyFilters);
@@ -184,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // xử lý thêm vào giỏ hàng
 document.addEventListener("DOMContentLoaded", function () {
-  // Bắt tất cả nút Add To Cart (sau khi DOM đã sinh ra)
+  // Bắt tất cả nút Add To Cart 
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("book-btn") || e.target.closest(".book-btn")) {
       const button = e.target.closest(".book-btn");
@@ -226,6 +235,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// xử lý phần yêu thích
+document.addEventListener("click", function (e) {
+  const heartContainer = e.target.closest("li");
+  if (heartContainer && heartContainer.querySelector(".fa-heart")) {
+    e.preventDefault();
 
+    const heartIcon = heartContainer.querySelector(".fa-heart");
+    heartIcon.classList.toggle("fa-solid");
+    heartIcon.classList.toggle("fa-regular");
+    heartIcon.classList.toggle("liked");
+  }
+});
 
 
