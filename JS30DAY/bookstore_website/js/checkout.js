@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const historyKey = `order_history_${username}`;
     const history = JSON.parse(localStorage.getItem(historyKey)) || [];
     history.push(order);
+    if (history.length > 10) history.shift()
     localStorage.setItem(historyKey, JSON.stringify(history));
 
     localStorage.removeItem(cartKey);

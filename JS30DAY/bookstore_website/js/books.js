@@ -1,10 +1,9 @@
-// làm active cho phần nav ở header
 document.addEventListener("DOMContentLoaded", function () {
-  const currentPath = window.location.pathname;
+  const currentFile = window.location.pathname.split("/").pop();
   const menuLinks = document.querySelectorAll(".header-nav nav ul li a");
 
   menuLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPath) {
+    if (link.getAttribute("href").split("/").pop() === currentFile) {
       link.classList.add("active");
     }
   });
@@ -98,10 +97,15 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage = i;
         renderProducts(filteredProducts, currentPage);
         renderPagination(filteredProducts);
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+        setTimeout(() => {
+          const scrollTarget = document.querySelector(".main-container");
+          if (scrollTarget) {
+            scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          }
+        }, 0);
       });
       pagination.appendChild(li);
     }

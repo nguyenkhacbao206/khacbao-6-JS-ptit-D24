@@ -70,6 +70,7 @@
             <button onclick="showSection('add')">➕ Thêm sản phẩm</button>
             <button onclick="showSection('manage')">📚 Quản lý sản phẩm</button>
             <button onclick="showSection('intro')">Thêm giới thiệu</button>
+            <button onclick="showSection('manageIntro'); renderIntroList()">📝 Quản lý giới thiệu</button>
             <button onclick="showSection('feedback'); renderFeedback()">quản lý phản hồi</button>
         </div>
 
@@ -109,6 +110,13 @@
                 <button type="submit">Thêm bài</button>
             </form>
         </div>
+
+        <!-- Quản lý bài giới thiệu -->
+        <div id="intro-manage-section" style="display: none;">
+             <h2>Quản lý bài giới thiệu</h2>
+        <div id="intro-list"></div>
+        </div>
+
         <div id="feedback-section" style="display: none;">
             <h2>Phản hồi từ khách hàng</h2>
             <div id="feedback-list"></div>

@@ -176,7 +176,7 @@ function removeItem(index) {
   updateCartCount();
 }
 
-// 5. Hàm Cập Nhật Số Lượng Sản Phẩm 
+//  Hàm Cập Nhật Số Lượng Sản Phẩm 
 function updateCartCount() {
     const username = localStorage.getItem("loggedInUser");
     if (!username) return; 

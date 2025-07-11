@@ -1,16 +1,13 @@
-// làm active cho phần nav ở header
-//  lấy ra và lưu tên file HTML hiện tại đang truy cập
 document.addEventListener("DOMContentLoaded", function () {
-  const currentPath = window.location.pathname;
+  const currentFile = window.location.pathname.split("/").pop();
   const menuLinks = document.querySelectorAll(".header-nav nav ul li a");
 
   menuLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPath) {
+    if (link.getAttribute("href").split("/").pop() === currentFile) {
       link.classList.add("active");
     }
   });
 });
-
 // 
 
 document.addEventListener("DOMContentLoaded", function() {

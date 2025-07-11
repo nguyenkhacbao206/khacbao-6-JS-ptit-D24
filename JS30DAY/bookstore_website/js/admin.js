@@ -14,6 +14,7 @@ function showSection(section) {
   document.getElementById("manage-section").style.display = section === "manage" ? "block" : "none";
   document.getElementById("review-section").style.display = section === "review" ? "block" : "none";
   document.getElementById("intro-section").style.display = section === "intro" ? "block" : "none";
+  document.getElementById("intro-manage-section").style.display = section === "manageIntro" ? "block" : "none";
   document.getElementById("feedback-section").style.display = section === "feedback" ? "block" : "none";
 }
 
@@ -32,7 +33,7 @@ form.addEventListener("submit", function (e) {
   const message = document.getElementById("admin-message");
 
   if (!name || isNaN(price) || !author || !description || isNaN(rating) || !type) {
-    message.textContent = "❌ Vui lòng nhập đầy đủ và hợp lệ tất cả các trường.";
+    message.textContent = " Vui lòng nhập đầy đủ và hợp lệ tất cả các trường.";
     message.style.color = "red";
     return;
   }
@@ -46,11 +47,11 @@ form.addEventListener("submit", function (e) {
       products[editingIndex] = { name, price, image: base64Image, author, description, rating, type };
       editingIndex = null;
       form.querySelector("button").textContent = "Thêm sản phẩm";
-      message.textContent = "✅ Cập nhật sản phẩm thành công!";
+      message.textContent = " Cập nhật sản phẩm thành công!";
       message.style.color = "green";
     } else {
       products.push({ name, price, image: base64Image, author, description, rating, type });
-      message.textContent = "✅ Thêm sản phẩm thành công!";
+      message.textContent = "Thêm sản phẩm thành công!";
       message.style.color = "green";
     }
 
@@ -78,7 +79,7 @@ form.addEventListener("submit", function (e) {
     const oldImage = products[editingIndex].image;
     reader.onload({ target: { result: oldImage } });
   } else {
-    message.textContent = "❌ Vui lòng chọn ảnh cho sản phẩm mới.";
+    message.textContent = " Vui lòng chọn ảnh cho sản phẩm mới.";
     message.style.color = "red";
   }
 });
@@ -149,23 +150,55 @@ function renderAdminBooks() {
 }
 
 // xử lý phần thêm phần giới thiệu 
+let editingIntroIndex = null;
+
 document.getElementById("intro-form").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const title = document.querySelector("#intro-title").value.trim();
   const content = document.querySelector("#intro-content").value.trim();
   const imgInput = document.querySelector("#intro-image");
+  const intros = JSON.parse(localStorage.getItem("introductions")) || [];
 
+  // ✅ Trường hợp SỬA bài viết
+  if (editingIntroIndex !== null) {
+    const item = intros[editingIntroIndex];
+    item.title = title;
+    item.content = content;
+
+    if (imgInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        item.image = reader.result;
+        localStorage.setItem("introductions", JSON.stringify(intros));
+        alert("✅ Cập nhật bài viết thành công!");
+        document.getElementById("intro-form").reset();
+        editingIntroIndex = null; // ✅ reset lại
+        renderIntroList();
+        showSection("manageIntro");
+      };
+      reader.readAsDataURL(imgInput.files[0]);
+    } else {
+      localStorage.setItem("introductions", JSON.stringify(intros));
+      alert("✅ Cập nhật bài viết thành công!");
+      document.getElementById("intro-form").reset();
+      editingIntroIndex = null; // ✅ reset lại
+      renderIntroList();
+      showSection("manageIntro");
+    }
+
+    return; // ✅ dừng lại, không chạy tiếp phần thêm mới
+  }
+
+  // ✅ Trường hợp THÊM MỚI
   if (!title || !content || !imgInput.files[0]) {
     alert("Vui lòng nhập đầy đủ thông tin");
     return;
   }
 
-  const readerIntro = new FileReader(); 
-  readerIntro.onload = function () {
-    const imgbase64 = readerIntro.result;
-
-    const intros = JSON.parse(localStorage.getItem("introductions")) || [];
+  const reader = new FileReader();
+  reader.onload = function () {
+    const imgbase64 = reader.result;
     intros.push({
       title,
       content,
@@ -174,12 +207,14 @@ document.getElementById("intro-form").addEventListener("submit", function(e) {
       createdBy: "admin"
     });
     localStorage.setItem("introductions", JSON.stringify(intros));
-    alert("Đã thêm bài giới thiệu");
+    alert("✅ Đã thêm bài giới thiệu");
     document.getElementById("intro-form").reset();
+    editingIntroIndex = null; // reset đảm bảo an toàn
     showSection("intro");
   };
-  readerIntro.readAsDataURL(imgInput.files[0]);
+  reader.readAsDataURL(imgInput.files[0]);
 });
+
 
 
 // xử lý phẩn quản lý phản hồi
@@ -230,3 +265,58 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+function renderIntroList() {
+  const introList = document.getElementById("intro-list");
+  const intros = JSON.parse(localStorage.getItem("introductions")) || [];
+
+  if (intros.length === 0) {
+    introList.innerHTML = "<p>Không có bài giới thiệu nào.</p>";
+    return;
+  }
+
+  introList.innerHTML = "";
+
+  intros.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.className = "admin-intro-item";
+    div.style = "border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px;";
+    div.innerHTML = `
+      <h3>${item.title}</h3>
+      <p><strong>Ngày tạo:</strong> ${item.createdAt || "Không rõ"} | <strong>Người tạo:</strong> ${item.createdBy || "admin"}</p>
+      <p>${item.content}</p>
+      <button class="edit-intro-btn" data-index="${index}">✏️ Sửa</button>
+      <button class="delete-intro-btn" data-index="${index}">🗑️ Xóa</button>
+    `;
+    introList.appendChild(div);
+  });
+
+  // Xử lý xóa bài
+  document.querySelectorAll(".delete-intro-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const index = +this.getAttribute("data-index");
+      if (!confirm("Bạn có chắc muốn xóa bài viết này?")) return;
+      const intros = JSON.parse(localStorage.getItem("introductions")) || [];
+      intros.splice(index, 1);
+      localStorage.setItem("introductions", JSON.stringify(intros));
+      renderIntroList();
+    });
+  });
+
+  // Xử lý sửa bài
+  document.querySelectorAll(".edit-intro-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const index = +this.getAttribute("data-index");
+      const intros = JSON.parse(localStorage.getItem("introductions")) || [];
+      const item = intros[index];
+
+      document.getElementById("intro-title").value = item.title;
+      document.getElementById("intro-content").value = item.content;
+      document.getElementById("intro-image").value = ""; // reset input ảnh
+
+      editingIntroIndex = index;
+      showSection("intro");
+    });
+  });
+}

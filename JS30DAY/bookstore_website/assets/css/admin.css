@@ -359,3 +359,16 @@ select#product-type {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.admin-intro-item h3 {
+  margin-bottom: 6px;
+}
+
+.admin-intro-item button {
+  margin-right: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

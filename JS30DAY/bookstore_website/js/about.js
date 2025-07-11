@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // --- GỢI Ý TÌM KIẾM ---
+  // xử lý thanh tìm kiếm
   const searchInput = document.querySelector(".sidebar-search input[type='search']");
   const suggest = document.getElementById("suggestList");
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = contentElement ? contentElement.textContent.toLowerCase() : "";
 
       if (title.includes(keyword) || content.includes(keyword)) {
-        post.style.display = "flex";
+        post.style.removeProperty("display"); 
       } else {
         post.style.display = "none";
       }
@@ -30,36 +30,47 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   searchInput.addEventListener("input", function () {
-    const keyword = this.value.toLowerCase().trim();
-    suggest.innerHTML = "";
+  const keyword = this.value.toLowerCase().trim();
+  suggest.innerHTML = "";
 
-    if (keyword === "") {
-      document.querySelectorAll(".main-content > div").forEach(post => post.style.display = "flex");
-      suggest.style.display = "none";
-      return;
+  const allPosts = document.querySelectorAll(".main-content > div");
+
+  if (keyword === "") {
+    allPosts.forEach(post => {
+      post.style.removeProperty("display"); 
+    });
+    suggest.style.display = "none";
+    return;
+}
+
+  // Lọc gợi ý từ tiêu đề
+  const matchedTitles = [];
+  allPosts.forEach(post => {
+    const h2 = post.querySelector("h2");
+    if (h2 && h2.textContent.toLowerCase().includes(keyword)) {
+      matchedTitles.push(h2.textContent.trim());
     }
-
-    const titles = Array.from(document.querySelectorAll(".main-content h2")).map(h2 => h2.textContent.trim());
-    const matched = titles.filter(title => title.toLowerCase().includes(keyword));
-
-    if (matched.length > 0) {
-      matched.forEach(title => {
-        const li = document.createElement("li");
-        li.textContent = title;
-        li.addEventListener('click', function () {
-          searchInput.value = this.textContent;
-          suggest.style.display = "none";
-          filterPostsByKeyword(this.textContent.toLowerCase());
-        });
-        suggest.appendChild(li);
-      });
-      suggest.style.display = "block";
-    } else {
-      suggest.style.display = "none";
-    }
-
-    filterPostsByKeyword(keyword);
   });
+
+  if (matchedTitles.length > 0) {
+    matchedTitles.forEach(title => {
+      const li = document.createElement("li");
+      li.textContent = title;
+      li.style.cursor = "pointer";
+      li.addEventListener("click", function () {
+        searchInput.value = this.textContent;
+        suggest.style.display = "none";
+        filterPostsByKeyword(this.textContent.toLowerCase());
+      });
+      suggest.appendChild(li);
+    });
+    suggest.style.display = "block";
+  } else {
+    suggest.style.display = "none";
+  }
+
+  filterPostsByKeyword(keyword);
+});
 
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".sidebar-search")) {
@@ -178,6 +189,17 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage = i;
         renderPage(currentPage);
         renderPagination();
+
+        setTimeout(() => {
+          const container = document.querySelector(".main-container");
+          if (container) {
+            container.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            //  cuộn cả trang
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          }
+        }, 0);
       });
 
       li.appendChild(a);

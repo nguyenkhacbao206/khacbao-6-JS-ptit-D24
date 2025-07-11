@@ -842,3 +842,36 @@ main {
 .read-more-btn:hover {
   background-color: #7ab278;
 }
+
+
+.pagination-list a.active {
+  background-color: #75b67e;
+  color: white;
+  border-radius: 6px;
+  /* padding: 6px 12px; */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.suggest-list {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  margin-top: 5px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.suggest-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.suggest-list li:hover {
+  background-color: #f0f0f0;
+}

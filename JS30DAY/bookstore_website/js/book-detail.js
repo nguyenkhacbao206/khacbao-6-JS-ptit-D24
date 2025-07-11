@@ -189,5 +189,5 @@ function renderReviews(bookId) {
 
 
 
-// Gọi hiển thị khi tải trang
-renderReviews(bookId);
+
+// renderReviews(bookId);
