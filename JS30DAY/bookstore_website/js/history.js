@@ -75,6 +75,20 @@ function printOrder(button) {
   //  XÓA NÚT IN TRONG BẢN SAO
   const printBtn = cloned.querySelector(".print-btn");
   if (printBtn) printBtn.remove();
+  //  Tìm hàng chứa tổng tiền
+  const row = td.closest("tr");
+  const totalCell = row.querySelector("td:nth-child(3)"); // Cột thứ 3 là tổng tiền
+  const totalText = totalCell ? totalCell.textContent.trim() : "Không rõ";
+
+  // Tạo dòng tổng tiền để in rõ ràng
+  const totalDiv = document.createElement("div");
+  totalDiv.style = "margin-top: 10px; font-weight: bold;";
+  totalDiv.textContent = `Tổng tiền: ${totalText}`;
+
+  // Gắn dòng tổng tiền vào bản in
+  cloned.appendChild(document.createElement("hr"));
+  cloned.appendChild(totalDiv);
+
 
   // In bản sao đã xóa nút
   const printWindow = window.open("", "_blank");
