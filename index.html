@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List App</title>
+    <title>Todo List</title>
     <style>
         * {
             margin: 0;
@@ -181,6 +181,59 @@
             color: white;
             border-color: #667eea;
         }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 20px;
+        }
+
+        /* Animation for new todos */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .todo-item.new {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .todo-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .todo-header h1 {
+                font-size: 2rem;
+            }
+            
+            .todo-input-container {
+                flex-direction: column;
+            }
+            
+            .add-btn {
+                padding: 12px;
+            }
+            
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+            
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -208,7 +261,7 @@
         </div>
 
         <ul class="todo-list" id="todoList">
-            <li class="empty-state">Chưa có công việc nào. Hãy thêm công việc đầu tiên!</li>
+            <li class="loading">Đang tải...</li>
         </ul>
 
         <div class="todo-stats" id="todoStats">
@@ -218,143 +271,6 @@
         </div>
     </div>
 
-    <script>
-        class TodoApp {
-            constructor() {
-                this.todos = JSON.parse(localStorage.getItem('todos')) || [];
-                this.currentFilter = 'all';
-                this.initEventListeners();
-                this.render();
-            }
-
-            initEventListeners() {
-                const todoInput = document.getElementById('todoInput');
-                const addBtn = document.getElementById('addBtn');
-                const filterBtns = document.querySelectorAll('.filter-btn');
-
-                // Thêm todo
-                addBtn.addEventListener('click', () => this.addTodo());
-                todoInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') this.addTodo();
-                });
-
-                // Filter buttons
-                filterBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        filterBtns.forEach(b => b.classList.remove('active'));
-                        e.target.classList.add('active');
-                        this.currentFilter = e.target.dataset.filter;
-                        this.render();
-                    });
-                });
-            }
-
-            addTodo() {
-                const input = document.getElementById('todoInput');
-                const text = input.value.trim();
-
-                if (text === '') {
-                    alert('Vui lòng nhập nội dung công việc!');
-                    return;
-                }
-
-                const todo = {
-                    id: Date.now(),
-                    text: text,
-                    completed: false,
-                    createdAt: new Date().toISOString()
-                };
-
-                this.todos.unshift(todo);
-                input.value = '';
-                this.saveTodos();
-                this.render();
-            }
-
-            deleteTodo(id) {
-                if (confirm('Bạn có chắc chắn muốn xóa công việc này?')) {
-                    this.todos = this.todos.filter(todo => todo.id !== id);
-                    this.saveTodos();
-                    this.render();
-                }
-            }
-
-            toggleTodo(id) {
-                const todo = this.todos.find(todo => todo.id === id);
-                if (todo) {
-                    todo.completed = !todo.completed;
-                    this.saveTodos();
-                    this.render();
-                }
-            }
-
-            getFilteredTodos() {
-                switch (this.currentFilter) {
-                    case 'active':
-                        return this.todos.filter(todo => !todo.completed);
-                    case 'completed':
-                        return this.todos.filter(todo => todo.completed);
-                    default:
-                        return this.todos;
-                }
-            }
-
-            saveTodos() {
-                localStorage.setItem('todos', JSON.stringify(this.todos));
-            }
-
-            updateStats() {
-                const total = this.todos.length;
-                const completed = this.todos.filter(todo => todo.completed).length;
-                const pending = total - completed;
-
-                document.getElementById('totalTasks').textContent = total;
-                document.getElementById('completedTasks').textContent = completed;
-                document.getElementById('pendingTasks').textContent = pending;
-            }
-
-            render() {
-                const todoList = document.getElementById('todoList');
-                const filteredTodos = this.getFilteredTodos();
-
-                if (filteredTodos.length === 0) {
-                    let emptyMessage = 'Chưa có công việc nào. Hãy thêm công việc đầu tiên!';
-                    if (this.currentFilter === 'active') {
-                        emptyMessage = 'Không có công việc chưa hoàn thành!';
-                    } else if (this.currentFilter === 'completed') {
-                        emptyMessage = 'Chưa có công việc nào được hoàn thành!';
-                    }
-                    
-                    todoList.innerHTML = `<li class="empty-state">${emptyMessage}</li>`;
-                } else {
-                    todoList.innerHTML = filteredTodos.map(todo => `
-                        <li class="todo-item ${todo.completed ? 'completed' : ''}">
-                            <input 
-                                type="checkbox" 
-                                class="todo-checkbox" 
-                                ${todo.completed ? 'checked' : ''}
-                                onchange="todoApp.toggleTodo(${todo.id})"
-                            >
-                            <span class="todo-text">${this.escapeHtml(todo.text)}</span>
-                            <button class="delete-btn" onclick="todoApp.deleteTodo(${todo.id})">
-                                🗑️ Xóa
-                            </button>
-                        </li>
-                    `).join('');
-                }
-
-                this.updateStats();
-            }
-
-            escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-        }
-
-        // Khởi tạo ứng dụng
-        const todoApp = new TodoApp();
-    </script>
+    <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
